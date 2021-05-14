@@ -1,4 +1,4 @@
-import { reactive, readonly, provide, inject } from "vue";
+import { reactive, readonly, inject } from "vue";
 import { ResourceList, NewsPostList, CalendarEventList } from "./types"
 
 import { mockResources } from "../mockups/resources"
