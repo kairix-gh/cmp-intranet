@@ -6,13 +6,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, inject } from 'vue';
 import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 
+import { useStore } from "@/store/createStore"
+
 export default defineComponent({
-  name: 'Home',
-  components: {
-    HelloWorld,
-  },
+    name: 'Home',
+    components: {
+        HelloWorld,
+    },
+    data() {
+        return {
+            count: 1,
+            store: useStore(),
+        }
+    },
+    async created() {
+        // this.store?.loadAll();
+    }
 });
 </script>

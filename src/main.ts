@@ -3,4 +3,10 @@ import App from './App.vue'
 import router from './router'
 import './assets/css/style.css'
 
-createApp(App).use(router).mount('#app')
+import store from "@/store/createStore"
+
+const app = createApp(App);
+
+app.provide("store", store);
+
+app.use(router).mount('#app')
