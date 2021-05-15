@@ -1,5 +1,5 @@
 import { reactive, readonly, inject } from "vue";
-import { Resource, ResourceList, NewsPostList, CalendarEventList } from "@/types/types"
+import { Resource, ResourceList, NewsPostList, CalendarEventList, NewsPost } from "@/types/types"
 
 import { mockResources } from "@/mockups/resources"
 import { mockNewsPosts } from "@/mockups/newsposts"
@@ -76,6 +76,21 @@ class Store {
 
         return this.state.resources.all.filter(r => r.Category == category);
     }
+
+    public getNewsPosts(count?: number): Array<NewsPost> {
+        if (!this.state.newsPosts.loaded) {
+            return []
+        }
+
+        const sortedPosts = this.state.newsPosts.all.sort((a, b) => Date.parse(b.PublishDate) - Date.parse(a.PublishDate));
+        if (count === undefined) {
+            return sortedPosts;
+        } else {
+            return sortedPosts.slice(0, 0 + count);
+        }
+    }
+
+
 }
 
 // Create store and load all data

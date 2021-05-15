@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <Menu/>
-        <main>
+        <main class="my-4">
             <router-view/>
         </main>
     </div>
