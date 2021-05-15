@@ -12,6 +12,7 @@ import { defineComponent } from 'vue';
 import Menu from "@/components/Menu.vue"
 
 import { useStore } from "@/store/store"
+import { Resource } from "@/store/types"
 
 export default defineComponent({
     name: 'Home',
@@ -23,10 +24,15 @@ export default defineComponent({
         return {
             count: 1,
             store: useStore(),
+            resourceCategories: {} as string[],
+            resources: [] as Resource[],
         }
     },
     async created() {
         // this.store?.loadAll();
+        this.resourceCategories = this.store.getResourceCategories();
+
+        this.resources = this.store.getResourcesInCategory("Operations");
     }
 });
 </script>

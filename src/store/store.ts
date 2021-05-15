@@ -1,9 +1,11 @@
 import { reactive, readonly, inject } from "vue";
-import { ResourceList, NewsPostList, CalendarEventList } from "./types"
+import { Resource, ResourceList, NewsPostList, CalendarEventList } from "./types"
 
 import { mockResources } from "../mockups/resources"
 import { mockNewsPosts } from "../mockups/newsposts"
 import { mockCalendarEvents } from "@/mockups/calendarevents";
+
+import groupBy from "lodash/groupBy"
 
 const initialResourceList = (): ResourceList => ({ all: [], loaded: false })
 const initialNewsPostList = (): NewsPostList => ({ all: [], loaded: false })
@@ -28,7 +30,7 @@ class Store {
         this.state = reactive(initialState);
     }
 
-    public getState(): State {
+    public getState() {
         return readonly(this.state);
     }
 
@@ -51,6 +53,30 @@ class Store {
         await this.loadResources();
         await this.loadNewsPosts();
         await this.loadCalendarEvents();
+    }
+
+    public getResourceCategories(): string[] {
+        if (this.state.resources.loaded) {
+            return [... new Set(this.state.resources.all.map(r => r.Category))];
+        } else {
+            return []
+        }
+    }
+
+    public getPinnedResources(): Resource[] {
+        if (!this.state.resources.loaded) {
+            return []
+        }
+
+        return this.state.resources.all.filter(r => r.Pinned == true);
+    }
+
+    public getResourcesInCategory(category: string): Resource[] {
+        if (!this.state.resources.loaded) {
+            return [];
+        }
+
+        return this.state.resources.all.filter(r => r.Category == category);
     }
 }
 

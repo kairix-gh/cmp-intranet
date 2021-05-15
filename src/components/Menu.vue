@@ -21,10 +21,10 @@
 
                             <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
                                 <MenuItems class="origin-top-left absolute left-0 mt-2 w-[34rem] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none grid grid-cols-2">
-                                    <div class="py-1" v-for="(item, index) in [1, 2, 3, 4, 5, 6]" :key="index">
-                                        <p class="block px-4 py-2 text-sm">Resource Category <a href="#" class="text-sm uppercase ml-2 text-blue-500 font-medium hover:underline">+ See All</a></p>
-                                        <MenuItem v-slot="{ active }" v-for="(item, index) in [1, 2, 3]" :key="index">
-                                            <a href="#" :class="[ active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Item</a>
+                                    <div class="py-2" v-for="(item, index) in resourceCategories" :key="index">
+                                        <p class="block px-4 py-2 text-sm font-medium">{{ item }} <a href="#" class="text-sm uppercase ml-2 text-blue-500 font-medium hover:underline">+ See All</a></p>
+                                        <MenuItem v-slot="{ active }" v-for="(item, index) in pinnedResources.filter(r => r.Category ==item).slice(0, 3)" :key="index">
+                                            <a href="#" :class="[ active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">{{ item.Title }}</a>
                                         </MenuItem>
                                     </div>
                                 </MenuItems>
@@ -53,7 +53,7 @@
                                 <PopoverPanel class="absolute z-10 w-screen max-w-sm px-4 mt-3 sm:px-0 lg:max-w-3xl origin-top transform -translate-x-1/2 left-1/2 ">
                                         <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                                             <div class="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
-                                                <a v-for="item in solutions" :key="item.name" :href="item.href"
+                                                <a v-for="item in apSections" :key="item.name" :href="item.href"
                                                     class="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50" >
                                                     <div class="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white sm:h-12 sm:w-12">
                                                         <div v-html="item.icon"></div>
@@ -70,36 +70,15 @@
                                                 </a>
                                             </div>
                                             <div class="p-4 bg-gray-50">
-                                                <a href="##" class="flow-root px-2 py-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50">
+                                                <a href="##" class="flow-root px-2 py-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                                                    v-for="item in myApps" :key="item">
                                                     <span class="flex items-center">
                                                         <span class="text-sm font-medium text-gray-900">
-                                                            RLH University
+                                                            {{ item.name }}
                                                         </span>
                                                     </span>
                                                     <span class="block text-sm text-gray-500">
-                                                        Central Hub for all brand approved training courses
-                                                    </span>
-                                                </a>
-
-                                                <a href="##" class="flow-root px-2 py-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50">
-                                                    <span class="flex items-center">
-                                                        <span class="text-sm font-medium text-gray-900">
-                                                            Reputation Performance Platform
-                                                        </span>
-                                                    </span>
-                                                    <span class="block text-sm text-gray-500">
-                                                        Review and monitor your online reputation score
-                                                    </span>
-                                                </a>
-
-                                                <a href="##" class="flow-root px-2 py-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50">
-                                                    <span class="flex items-center">
-                                                        <span class="text-sm font-medium text-gray-900">
-                                                            RLH ePay
-                                                        </span>
-                                                    </span>
-                                                    <span class="block text-sm text-gray-500">
-                                                        Manage your franchise invoices
+                                                        {{ item.description }}
                                                     </span>
                                                 </a>
                                             </div>
@@ -213,10 +192,11 @@
 
 <script lang="ts">
 /* eslint-disable */
-import { defineComponent, ref } from 'vue';
+import { defineComponent, onMounted, ref } from 'vue';
 
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems, Popover, PopoverPanel, PopoverButton } from '@headlessui/vue'
 import { useStore } from "@/store/store"
+import { Resource } from "@/store/types"
 
 export default defineComponent({
     name: "MainMenu",
@@ -236,8 +216,10 @@ export default defineComponent({
         return {
             store: useStore(),
             open: false,
-            solutions: [
-                    {
+            resourceCategories: [] as string[],
+            pinnedResources: [] as Resource[],
+            apSections: [
+                {
                     name: 'Calendar',
                     description: 'Review events and training opportunities.',
                     href: '##',
@@ -249,8 +231,8 @@ export default defineComponent({
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M20.7417 22.1196V25.882L24 27.7632L27.2584 25.882V22.1196L24 20.2384L20.7417 22.1196Z" stroke="#FDBA74" stroke-width="2" />
                         </svg>
                     `,
-                    },
-                    {
+                },
+                {
                     name: 'Vendors',
                     description: 'Explore brand approved vendors',
                     href: '##',
@@ -261,9 +243,19 @@ export default defineComponent({
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M18.804 30H29.1963L24.0001 21L18.804 30Z" stroke="#FDBA74" stroke-width="2" />
                         </svg>
                     `,
-                    },
-                ]
+                },
+            ],
+            myApps: [
+                { name: "RLH University", description: "Central Hub for all brand approved training courses"},
+                { name: "Reputation Performance Platform", description: "Review and monitor your online reputation score"},
+                { name: "RLH ePay", description: "Manage your franchise invoices"},
+            ]
         }
     },
+    async created() {
+        this.resourceCategories = this.store.getResourceCategories();
+
+        this.pinnedResources = this.store.getPinnedResources();
+    }
 })
 </script>

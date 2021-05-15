@@ -38,16 +38,16 @@ export interface CalendarEvent {
 }
 
 export interface ResourceList {
-    all: Record<number, Resource>
+    all: Array<Resource>
     loaded: boolean
 }
 
 export interface NewsPostList {
-    all: Record<number, NewsPost>
+    all: Array<NewsPost>
     loaded: boolean
 }
 
 export interface CalendarEventList {
-    all: Record<number, CalendarEvent>
+    all: Array<CalendarEvent>
     loaded: boolean
 }
