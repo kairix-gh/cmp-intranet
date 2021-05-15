@@ -54,11 +54,13 @@ class Store {
     }
 }
 
+// Create store and load all data
 const store = new Store(initialState());
 store.loadAll();
 
 export default store
 
 export const useStore = (): Store => {
-    return inject<Store>("store")!;
+    // Return the injected store object, or the store object itself
+    return inject<Store>("store") ?? store;
 }
