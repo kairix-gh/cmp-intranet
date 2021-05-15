@@ -89,7 +89,7 @@
                     </nav>
                 </div>
 
-                <div>
+                <div class="hidden md:block">
                     <!-- Profile -->
                     <Menu as="div" class="ml-3 relative">
                         <div>
