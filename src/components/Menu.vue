@@ -37,9 +37,44 @@
                         </div>
 
                         <!-- myHotel -->
-                        <div class="inline-block px-2 py-2">
-                            <a href="#" class="py-2 px-4">myHotel</a>
-                        </div>
+                        <Popover v-slot="{ open }" class="relative inline-block px-2">
+                            <PopoverButton :class="open ? '' : 'text-opacity-90'"
+                                class="inline-flex items-center px-2 py-2 group hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+                                <span>myHotels</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1 -mr-1 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </PopoverButton>
+
+
+                            <transition enter-active-class="transition duration-200 ease-out" enter-from-class="translate-y-1 opacity-0" enter-to-class="translate-y-0 opacity-100" leave-active-class="transition duration-150 ease-in" leave-from-class="translate-y-0 opacity-100" leave-to-class="translate-y-1 opacity-0" >
+                                <PopoverPanel class="absolute z-10 w-screen max-w-sm px-4 mt-3 sm:px-0 lg:max-w-3xl origin-top transform -translate-x-1/2 left-1/2 ">
+                                        <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                                            <div class="bg-white">
+                                                <input v-model="hotelFilterInput" class="w-full px-4 py-2 border-b rounded-lg focus:outline-none" type="text" placeholder="Filter Hotels">
+                                            </div>
+                                            <div class="overflow-x-hidden max-h-[17rem]">
+                                                <div class="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
+                                                    <a v-for="item in filteredHotelList" :key="item" href="#"
+                                                        class="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50" >
+                                                        <div class="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white sm:h-12 sm:w-12">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 48 48"><rect width="48" height="48" rx="8" fill="#EEEEEE"/><path stroke-linecap="round" stroke-linejoin="round" stroke="#999999" stroke-width="2" d="m31,33l0,-16a2,2 0 0 0 -2,-2l-10,0a2,2 0 0 0 -2,2l0,16m14,0l2,0m-2,0l-5,0m-9,0l-2,0m2,0l5,0m-1,-14l1,0m-1,4l1,0m4,-4l1,0m-1,4l1,0m-5,10l0,-5a1,1 0 0 1 1,-1l2,0a1,1 0 0 1 1,1l0,5m-4,0l4,0" /></svg>
+                                                        </div>
+
+                                                        <div class="ml-4">
+                                                            <p class="text-sm font-medium text-gray-900">
+                                                                {{ item.name }}
+                                                            </p>
+                                                            <p class="text-sm text-gray-500">
+                                                                {{ item.description }}
+                                                            </p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </PopoverPanel>
+                            </transition>
+                        </Popover>
+
 
                         <!-- More: Calendar, Vendors, myApps -->
                         <Popover v-slot="{ open }" class="relative inline-block px-2">
@@ -115,7 +150,7 @@
                     </nav>
                 </div>
 
-                <div class="hidden md:block">
+                <div class="hidden md:flex items-center">
                     <!-- Profile -->
                     <Menu as="div" class="ml-3 relative">
                         <div>
@@ -205,10 +240,13 @@
                     </div>
 
                     <div class="py-5 px-5 space-y-6">
-                        <p class="font-semibold text-base">myHotels</p>
+                        <div class="flex flex-col space-y-6 sm:flex-row sm:justify-between sm:items-center sm:space-y-0 sm:space-x-6">
+                            <p class="font-semibold text-base">myHotels</p>
+                            <input v-model="hotelFilterInput" class="w-full px-4 py-2 ring-1 ring-gray-400 rounded-lg focus:outline-none" type="text" placeholder="Filter Hotels">
+                        </div>
                         <div class="grid gap-y-4">
-                            <a href="#" v-for="(item, index) in Array.from({length: 5}, (v,k)=>k+1)" :key="index" class="self-center text-base hover:text-gray-700">
-                                Hotel Anywhere ABC
+                            <a href="#" v-for="item in filteredHotelList " :key="item" class="self-center text-base hover:text-gray-700">
+                                {{ item.name }}
                             </a>
                         </div>
                     </div>
@@ -222,7 +260,23 @@
 /* eslint-disable */
 import { defineComponent, onMounted, ref } from 'vue';
 
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems, Popover, PopoverPanel, PopoverButton } from '@headlessui/vue'
+import {
+    Disclosure,
+    DisclosureButton,
+    DisclosurePanel,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuItems,
+    Popover,
+    PopoverPanel,
+    PopoverButton,
+    Listbox,
+    ListboxLabel,
+    ListboxButton,
+    ListboxOptions,
+    ListboxOption,
+} from '@headlessui/vue'
 import { useStore } from "@/store/store"
 import { Resource } from "@/store/types"
 
@@ -238,7 +292,25 @@ export default defineComponent({
         MenuItems,
         Popover,
         PopoverPanel,
-        PopoverButton
+        PopoverButton,
+        Listbox,
+        ListboxLabel,
+        ListboxButton,
+        ListboxOptions,
+        ListboxOption,
+    },
+    computed: {
+        filteredHotelList(): Array<object> {
+            let filterText = this.hotelFilterInput;
+
+            if (!filterText) {
+                return this.hotelList;
+            }
+
+            return this.hotelList.filter(function(e: any) {
+                return e.name.toLowerCase().includes(filterText.toLowerCase());
+            })
+        }
     },
     data() {
         return {
@@ -281,6 +353,59 @@ export default defineComponent({
             searchPanelOpen: false as boolean,
             searchPanelBluring: false as boolean,
             searchInput: "" as string,
+
+            hotelList: [
+                { name: "Economy Brand Anaheim, CA" },
+                { name: "Midscale Brand Denver, CO" },
+                { name: "Midscale Brand & Conference Center Chicago, IL" },
+                { name: "Economy Brand Atlanta, GA" },
+                { name: "Upscale Brand New York, NY" },
+                { name: "Luxury Brand Seattle, WA" },
+                { name: "Economy Brand Boise, ID" },
+                { name: "Midscale Brand & Suites Grand Junction, CO" },
+                { name: "Economy Brand Anaheim, CA" },
+                { name: "Midscale Brand Denver, CO" },
+                { name: "Midscale Brand & Conference Center Chicago, IL" },
+                { name: "Economy Brand Atlanta, GA" },
+                { name: "Upscale Brand New York, NY" },
+                { name: "Luxury Brand Seattle, WA" },
+                { name: "Economy Brand Boise, ID" },
+                { name: "Midscale Brand & Suites Grand Junction, CO" },
+                { name: "Economy Brand Anaheim, CA" },
+                { name: "Midscale Brand Denver, CO" },
+                { name: "Midscale Brand & Conference Center Chicago, IL" },
+                { name: "Economy Brand Atlanta, GA" },
+                { name: "Upscale Brand New York, NY" },
+                { name: "Luxury Brand Seattle, WA" },
+                { name: "Economy Brand Boise, ID" },
+                { name: "Midscale Brand & Suites Grand Junction, CO" },
+                { name: "Economy Brand Anaheim, CA" },
+                { name: "Midscale Brand Denver, CO" },
+                { name: "Midscale Brand & Conference Center Chicago, IL" },
+                { name: "Economy Brand Atlanta, GA" },
+                { name: "Upscale Brand New York, NY" },
+                { name: "Luxury Brand Seattle, WA" },
+                { name: "Economy Brand Boise, ID" },
+                { name: "Midscale Brand & Suites Grand Junction, CO" },
+                { name: "Economy Brand Anaheim, CA" },
+                { name: "Midscale Brand Denver, CO" },
+                { name: "Midscale Brand & Conference Center Chicago, IL" },
+                { name: "Economy Brand Atlanta, GA" },
+                { name: "Upscale Brand New York, NY" },
+                { name: "Luxury Brand Seattle, WA" },
+                { name: "Economy Brand Boise, ID" },
+                { name: "Midscale Brand & Suites Grand Junction, CO" },
+                { name: "Economy Brand Anaheim, CA" },
+                { name: "Midscale Brand Denver, CO" },
+                { name: "Midscale Brand & Conference Center Chicago, IL" },
+                { name: "Economy Brand Atlanta, GA" },
+                { name: "Upscale Brand New York, NY" },
+                { name: "Luxury Brand Seattle, WA" },
+                { name: "Economy Brand Boise, ID" },
+                { name: "Midscale Brand & Suites Grand Junction, CO" },
+
+            ],
+            hotelFilterInput: "" as string,
         }
     },
     async created() {
