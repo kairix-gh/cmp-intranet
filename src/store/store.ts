@@ -5,8 +5,6 @@ import { mockResources } from "../mockups/resources"
 import { mockNewsPosts } from "../mockups/newsposts"
 import { mockCalendarEvents } from "@/mockups/calendarevents";
 
-import groupBy from "lodash/groupBy"
-
 const initialResourceList = (): ResourceList => ({ all: [], loaded: false })
 const initialNewsPostList = (): NewsPostList => ({ all: [], loaded: false })
 const initialEventList = (): CalendarEventList => ({ all: [], loaded: false })

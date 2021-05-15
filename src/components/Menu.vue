@@ -88,7 +88,7 @@
                                 <PopoverPanel class="absolute z-10 w-screen max-w-sm px-4 mt-3 sm:px-0 lg:max-w-3xl origin-top transform -translate-x-1/2 left-1/2 ">
                                         <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                                             <div class="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
-                                                <a v-for="item in apSections" :key="item.name" :href="item.href"
+                                                <a v-for="item in intranetSections" :key="item.name" :href="item.route"
                                                     class="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50" >
                                                     <div class="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white sm:h-12 sm:w-12">
                                                         <div v-html="item.icon"></div>
@@ -257,13 +257,13 @@
 </template>
 
 <script lang="ts">
-/* eslint-disable */
-import { defineComponent, onMounted, ref } from 'vue';
+import { defineComponent } from 'vue';
+
+import { IntranetSections, IntranetSection } from "@/config/intranetSections"
+import { Properties as PropertyList, Hotel } from "@/mockups/properties"
+import { myApps as myAppList, myApp } from "@/config/myapps"
 
 import {
-    Disclosure,
-    DisclosureButton,
-    DisclosurePanel,
     Menu,
     MenuButton,
     MenuItem,
@@ -271,11 +271,6 @@ import {
     Popover,
     PopoverPanel,
     PopoverButton,
-    Listbox,
-    ListboxLabel,
-    ListboxButton,
-    ListboxOptions,
-    ListboxOption,
 } from '@headlessui/vue'
 import { useStore } from "@/store/store"
 import { Resource } from "@/store/types"
@@ -283,9 +278,6 @@ import { Resource } from "@/store/types"
 export default defineComponent({
     name: "MainMenu",
     components: {
-        Disclosure,
-        DisclosureButton,
-        DisclosurePanel,
         Menu,
         MenuButton,
         MenuItem,
@@ -293,21 +285,16 @@ export default defineComponent({
         Popover,
         PopoverPanel,
         PopoverButton,
-        Listbox,
-        ListboxLabel,
-        ListboxButton,
-        ListboxOptions,
-        ListboxOption,
     },
     computed: {
-        filteredHotelList(): Array<object> {
+        filteredHotelList(): Array<Hotel> {
             let filterText = this.hotelFilterInput;
 
             if (!filterText) {
                 return this.hotelList;
             }
 
-            return this.hotelList.filter(function(e: any) {
+            return this.hotelList.filter(function(e: Hotel) {
                 return e.name.toLowerCase().includes(filterText.toLowerCase());
             })
         }
@@ -315,105 +302,30 @@ export default defineComponent({
     data() {
         return {
             store: useStore(),
-            open: false,
+
             resourceCategories: [] as string[],
             pinnedResources: [] as Resource[],
-            apSections: [
-                {
-                    name: 'Calendar',
-                    description: 'Review events and training opportunities.',
-                    href: '##',
-                    icon: `
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 48 48">
-                            <rect width="48" height="48" rx="8" fill="#EEEEEE" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke="#999999" stroke-width="2" d="m20,19l0,-4m8,4l0,-4m-9,8l10,0m-12,10l14,0a2,2 0 0 0 2,-2l0,-12a2,2 0 0 0 -2,-2l-14,0a2,2 0 0 0 -2,2l0,12a2,2 0 0 0 2,2z"" />
-                        </svg>
-                    `,
-                },
-                {
-                    name: 'Vendors',
-                    description: 'Explore brand approved vendors',
-                    href: '##',
-                    icon: `
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden='true' xmlns="http://www.w3.org/2000/svg">
-                            <rect width="48" height="48" rx="8" fill="#EEEEEE" />
-                            <path d="M24 11L35.2583 17.5V30.5L24 37L12.7417 30.5V17.5L24 11Z" stroke="#898989" stroke-width="2" />
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.7417 19.8094V28.1906L24 32.3812L31.2584 28.1906V19.8094L24 15.6188L16.7417 19.8094Z" stroke="#999999" stroke-width="2" />
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.7417 22.1196V25.882L24 27.7632L27.2584 25.882V22.1196L24 20.2384L20.7417 22.1196Z" stroke="#999999" stroke-width="2" />
-                        </svg>
-                    `,
-                },
-            ],
-            myApps: [
-                { name: "RLH University", description: "Central Hub for all brand approved training courses"},
-                { name: "Reputation Performance Platform", description: "Review and monitor your online reputation score"},
-                { name: "RLH ePay", description: "Manage your franchise invoices"},
-            ],
+            intranetSections: [] as Array<IntranetSection>,
+            myApps: [] as Array<myApp>,
 
             searchPanelOpen: false as boolean,
             searchPanelBluring: false as boolean,
             searchInput: "" as string,
 
-            hotelList: [
-                { name: "Economy Brand Anaheim, CA" },
-                { name: "Midscale Brand Denver, CO" },
-                { name: "Midscale Brand & Conference Center Chicago, IL" },
-                { name: "Economy Brand Atlanta, GA" },
-                { name: "Upscale Brand New York, NY" },
-                { name: "Luxury Brand Seattle, WA" },
-                { name: "Economy Brand Boise, ID" },
-                { name: "Midscale Brand & Suites Grand Junction, CO" },
-                { name: "Economy Brand Anaheim, CA" },
-                { name: "Midscale Brand Denver, CO" },
-                { name: "Midscale Brand & Conference Center Chicago, IL" },
-                { name: "Economy Brand Atlanta, GA" },
-                { name: "Upscale Brand New York, NY" },
-                { name: "Luxury Brand Seattle, WA" },
-                { name: "Economy Brand Boise, ID" },
-                { name: "Midscale Brand & Suites Grand Junction, CO" },
-                { name: "Economy Brand Anaheim, CA" },
-                { name: "Midscale Brand Denver, CO" },
-                { name: "Midscale Brand & Conference Center Chicago, IL" },
-                { name: "Economy Brand Atlanta, GA" },
-                { name: "Upscale Brand New York, NY" },
-                { name: "Luxury Brand Seattle, WA" },
-                { name: "Economy Brand Boise, ID" },
-                { name: "Midscale Brand & Suites Grand Junction, CO" },
-                { name: "Economy Brand Anaheim, CA" },
-                { name: "Midscale Brand Denver, CO" },
-                { name: "Midscale Brand & Conference Center Chicago, IL" },
-                { name: "Economy Brand Atlanta, GA" },
-                { name: "Upscale Brand New York, NY" },
-                { name: "Luxury Brand Seattle, WA" },
-                { name: "Economy Brand Boise, ID" },
-                { name: "Midscale Brand & Suites Grand Junction, CO" },
-                { name: "Economy Brand Anaheim, CA" },
-                { name: "Midscale Brand Denver, CO" },
-                { name: "Midscale Brand & Conference Center Chicago, IL" },
-                { name: "Economy Brand Atlanta, GA" },
-                { name: "Upscale Brand New York, NY" },
-                { name: "Luxury Brand Seattle, WA" },
-                { name: "Economy Brand Boise, ID" },
-                { name: "Midscale Brand & Suites Grand Junction, CO" },
-                { name: "Economy Brand Anaheim, CA" },
-                { name: "Midscale Brand Denver, CO" },
-                { name: "Midscale Brand & Conference Center Chicago, IL" },
-                { name: "Economy Brand Atlanta, GA" },
-                { name: "Upscale Brand New York, NY" },
-                { name: "Luxury Brand Seattle, WA" },
-                { name: "Economy Brand Boise, ID" },
-                { name: "Midscale Brand & Suites Grand Junction, CO" },
-
-            ],
+            hotelList: [] as Array<Hotel>,
             hotelFilterInput: "" as string,
         }
     },
     async created() {
         this.resourceCategories = this.store.getResourceCategories();
         this.pinnedResources = this.store.getPinnedResources();
+
+        this.intranetSections = IntranetSections;
+        this.hotelList = PropertyList;
+        this.myApps = myAppList;
     },
     methods: {
-        search(panelOpen: any) {
+        search() {
             console.log("Do search");
         },
     }
