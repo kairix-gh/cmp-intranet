@@ -1,8 +1,8 @@
 import { reactive, readonly, inject } from "vue";
 import { Resource, ResourceList, NewsPostList, CalendarEventList } from "@/types/types"
 
-import { mockResources } from "../mockups/resources"
-import { mockNewsPosts } from "../mockups/newsposts"
+import { mockResources } from "@/mockups/resources"
+import { mockNewsPosts } from "@/mockups/newsposts"
 import { mockCalendarEvents } from "@/mockups/calendarevents";
 
 const initialResourceList = (): ResourceList => ({ all: [], loaded: false })
