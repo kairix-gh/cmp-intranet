@@ -9,7 +9,7 @@
                     </a>
 
                     <!-- Menu Items -->
-                    <nav class="hidden md:inline-block divide-x-2">
+                    <nav class="hidden md:inline-flex items-center divide-x-2">
                         <!-- myResources -->
                         <Menu as="div" class="relative inline-block">
                             <div>
@@ -32,12 +32,12 @@
                         </Menu>
 
                         <!-- NewsHub -->
-                        <div class="relative inline-block px-2 py-2">
+                        <div class="inline-block px-2 py-2">
                             <a href="#" class="py-2 px-4">NewsHub</a>
                         </div>
 
                         <!-- myHotel -->
-                        <div class="relative inline-block px-2 py-2">
+                        <div class="inline-block px-2 py-2">
                             <a href="#" class="py-2 px-4">myHotel</a>
                         </div>
 
@@ -83,7 +83,33 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        </PopoverPanel>
+                                    </PopoverPanel>
+                            </transition>
+                        </Popover>
+
+                        <!-- Search -->
+                        <Popover v-slot="{ open }" class="inline-block px-2">
+                            <PopoverButton :class="open ? '' : 'text-opacity-90'"
+                                class="inline-flex items-center px-2 py-2 group hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                                <span>Search</span>
+                            </PopoverButton>
+
+                            <transition enter-active-class="transition duration-200 ease-out" enter-from-class="translate-y-1 opacity-0" enter-to-class="translate-y-0 opacity-100" leave-active-class="transition duration-150 ease-in" leave-from-class="translate-y-0 opacity-100" leave-to-class="translate-y-1 opacity-0" >
+                                <PopoverPanel focus class="absolute z-10 w-screen left-0 mt-5">
+                                    <div class="overflow-hidden shadow-lg ring-1 ring-black ring-opacity-5 bg-white max-w-7xl mx-auto rounded">
+
+                                        <form @submit.prevent="search" class="w-full flex rounded border focus-within:ring-1 ring-primary p-2">
+                                            <input v-model="searchInput" class="w-full p-2 focus:outline-none" type="text" placeholder="Search Intranet">
+                                            <button type="submit" class="w-auto flex justify-end items-center bg-white text-red-500 p-2 hover:text-red-400 focus:outline-none" tabindex="-1">
+                                                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                                </svg>
+                                            </button>
+                                        </form>
+
+                                    </div>
+                                </PopoverPanel>
                             </transition>
                         </Popover>
                     </nav>
@@ -128,64 +154,60 @@
             </div>
         </div>
 
-
-
-
-
         <!-- Mobile Menu -->
         <transition enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
-        <PopoverPanel focus class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right">
-            <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-                <div class="py-5 px-5">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>
+            <PopoverPanel focus class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right">
+                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+                    <div class="py-5 px-5">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>
+                            </div>
+                            <PopoverButton>
+                                <span class="sr-only">Close Menu</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
+                            </PopoverButton>
                         </div>
-                        <PopoverButton>
-                            <span class="sr-only">Close Menu</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
-                        </PopoverButton>
+
+                        <div class="mt-6">
+                            <p class="font-semibold text-base mb-4">myResources</p>
+                            <nav class="grid gap-y-8">
+                                <a v-for="(item, index) in [1, 2, 3, 4, 5, 6]" :key="index" href="#" class="flex items-center rounded-md hover:bg-gray-50 p-3 -m-3">
+                                    <span class="ml-3 text-base text-gray-900">
+                                        Resource Category
+                                    </span>
+                                </a>
+                            </nav>
+                        </div>
                     </div>
 
-                    <div class="mt-6">
-                        <p class="font-semibold text-base mb-4">myResources</p>
-                        <nav class="grid gap-y-8">
-                            <a v-for="(item, index) in [1, 2, 3, 4, 5, 6]" :key="index" href="#" class="flex items-center rounded-md hover:bg-gray-50 p-3 -m-3">
-                                <span class="ml-3 text-base text-gray-900">
-                                    Resource Category
-                                </span>
+                    <div class="py-5 px-5 space-y-8">
+                        <div class="grid grid-cols-2 gap-y-6 gap-x-8">
+                            <a href="#" v-for="(item, index) in ['NewsHub', 'Calendar', 'Vendors']" :key="index" class="text-base font-medium hover:text-gray-700">
+                                {{ item }}
                             </a>
-                        </nav>
+                        </div>
                     </div>
-                </div>
 
-                <div class="py-5 px-5 space-y-8">
-                    <div class="grid grid-cols-2 gap-y-6 gap-x-8">
-                        <a href="#" v-for="(item, index) in ['NewsHub', 'Calendar', 'Vendors']" :key="index" class="text-base font-medium hover:text-gray-700">
-                            {{ item }}
-                        </a>
+                    <div class="py-5 px-5 space-y-6">
+                        <p class="font-semibold text-base">myApps</p>
+                        <div class="grid grid-cols-2 gap-y-4 gap-x-8">
+                            <a href="#" v-for="(item, index) in ['RLH University', 'Reputation Performance Platform', 'RLH ePay']" :key="index" class="self-center text-base hover:text-gray-700">
+                                {{ item }}
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="py-5 px-5 space-y-6">
-                    <p class="font-semibold text-base">myApps</p>
-                    <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-                        <a href="#" v-for="(item, index) in ['RLH University', 'Reputation Performance Platform', 'RLH ePay']" :key="index" class="self-center text-base hover:text-gray-700">
-                            {{ item }}
-                        </a>
+                    <div class="py-5 px-5 space-y-6">
+                        <p class="font-semibold text-base">myHotels</p>
+                        <div class="grid gap-y-4">
+                            <a href="#" v-for="(item, index) in Array.from({length: 5}, (v,k)=>k+1)" :key="index" class="self-center text-base hover:text-gray-700">
+                                Hotel Anywhere ABC
+                            </a>
+                        </div>
                     </div>
                 </div>
-
-                <div class="py-5 px-5 space-y-6">
-                    <p class="font-semibold text-base">myHotels</p>
-                    <div class="grid gap-y-4">
-                        <a href="#" v-for="(item, index) in Array.from({length: 5}, (v,k)=>k+1)" :key="index" class="self-center text-base hover:text-gray-700">
-                            Hotel Anywhere ABC
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </PopoverPanel>
+            </PopoverPanel>
         </transition>
     </Popover>
 </template>
@@ -212,7 +234,7 @@ export default defineComponent({
         PopoverPanel,
         PopoverButton
     },
-    data: function() {
+    data() {
         return {
             store: useStore(),
             open: false,
@@ -248,13 +270,21 @@ export default defineComponent({
                 { name: "RLH University", description: "Central Hub for all brand approved training courses"},
                 { name: "Reputation Performance Platform", description: "Review and monitor your online reputation score"},
                 { name: "RLH ePay", description: "Manage your franchise invoices"},
-            ]
+            ],
+
+            searchPanelOpen: false as boolean,
+            searchPanelBluring: false as boolean,
+            searchInput: "" as string,
         }
     },
     async created() {
         this.resourceCategories = this.store.getResourceCategories();
-
         this.pinnedResources = this.store.getPinnedResources();
+    },
+    methods: {
+        search(panelOpen: any) {
+            console.log("Do search");
+        },
     }
 })
 
