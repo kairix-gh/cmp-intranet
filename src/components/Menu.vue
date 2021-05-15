@@ -160,9 +160,15 @@
                 <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                     <div class="py-5 px-5">
                         <div class="flex items-center justify-between">
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>
-                            </div>
+                            <form @submit.prevent="search" class="flex rounded border-2 focus-within:ring-2 ring-primary">
+                                <input v-model="searchInput" class="w-full p-2 focus:outline-none" type="text" placeholder="Search Intranet">
+                                <button type="submit" class="w-auto flex justify-end items-center bg-white text-red-500 p-2 hover:text-red-400 focus:outline-none" tabindex="-1">
+                                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                </button>
+                            </form>
+
                             <PopoverButton>
                                 <span class="sr-only">Close Menu</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
@@ -172,9 +178,9 @@
                         <div class="mt-6">
                             <p class="font-semibold text-base mb-4">myResources</p>
                             <nav class="grid gap-y-8">
-                                <a v-for="(item, index) in [1, 2, 3, 4, 5, 6]" :key="index" href="#" class="flex items-center rounded-md hover:bg-gray-50 p-3 -m-3">
+                                <a v-for="(item, index) in resourceCategories" :key="index" href="#" class="flex items-center rounded-md hover:bg-gray-50 p-3 -m-3">
                                     <span class="ml-3 text-base text-gray-900">
-                                        Resource Category
+                                        {{ item }}
                                     </span>
                                 </a>
                             </nav>
@@ -192,8 +198,8 @@
                     <div class="py-5 px-5 space-y-6">
                         <p class="font-semibold text-base">myApps</p>
                         <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-                            <a href="#" v-for="(item, index) in ['RLH University', 'Reputation Performance Platform', 'RLH ePay']" :key="index" class="self-center text-base hover:text-gray-700">
-                                {{ item }}
+                            <a href="#" v-for="item in myApps" :key="item" class="self-center text-base hover:text-gray-700">
+                                {{ item.name }}
                             </a>
                         </div>
                     </div>
