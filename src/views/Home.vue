@@ -1,5 +1,9 @@
 <template>
-  <div class="home">
+  <div class="">
+      <div class="flex flex-col">
+
+      </div>
+
   </div>
 </template>
 
@@ -7,7 +11,7 @@
 import { defineComponent } from 'vue';
 
 import { useStore } from "@/store/store"
-import { Resource } from "@/types/types"
+import { NewsPost } from "@/types/types"
 
 export default defineComponent({
     name: 'Home',
@@ -17,15 +21,12 @@ export default defineComponent({
         return {
             count: 1,
             store: useStore(),
-            resourceCategories: {} as string[],
-            resources: [] as Resource[],
+
+            newsPosts: [] as Array<NewsPost>,
         }
     },
     async created() {
-        // this.store?.loadAll();
-        this.resourceCategories = this.store.getResourceCategories();
-
-        this.resources = this.store.getResourcesInCategory("Operations");
+        this.newsPosts = this.store.getNewsPosts();
     }
 });
 </script>
