@@ -191,7 +191,7 @@
 
         <!-- Mobile Menu -->
         <transition enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
-            <PopoverPanel focus class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right">
+            <PopoverPanel class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right">
                 <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                     <div class="py-5 px-5">
                         <div class="flex items-center justify-between">
