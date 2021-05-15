@@ -12,7 +12,7 @@ import { defineComponent } from 'vue';
 import Menu from "@/components/Menu.vue"
 
 import { useStore } from "@/store/store"
-import { Resource } from "@/store/types"
+import { Resource } from "@/types/types"
 
 export default defineComponent({
     name: 'Home',
