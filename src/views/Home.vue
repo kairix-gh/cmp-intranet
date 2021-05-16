@@ -15,10 +15,12 @@
             <div class="w-full mt-8 mb-2">
                 <p class="text-2xl pb-1 mb-3 border-b">Upcoming Events</p>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8 mx-auto">
-                    <CalendarEventComponent v-for="event in events" :key="event" :Event="event" />
+                    <CalendarEventComponent v-for="event in events" :key="event" :Event="event" v-on:requestModalShow="requestModalShowEvent" />
                 </div>
             </div>
         </div>
+
+        <CalendarEventModal :Event="selectedEvent" :IsOpen="eventModalOpen" v-on:requestModalHide="requestModalHideEvent" />
     </div>
 </template>
 
@@ -42,7 +44,9 @@ import { CalendarEvent, NewsPost } from "@/types/types"
 
 import NewsPostHero from "@/components/NewsPosts/NewsPostHero.vue"
 import NewsPostComponent from "@/components/NewsPosts/NewsPost.vue"
-import CalendarEventComponent from "@/components/CalendarEvent.vue"
+
+import CalendarEventComponent from "@/components/CalendarEvent/CalendarEvent.vue"
+import CalendarEventModal from "@/components/CalendarEvent/CalendarEventModal.vue"
 
 export default defineComponent({
     name: 'Home',
@@ -50,6 +54,7 @@ export default defineComponent({
         NewsPostHero,
         NewsPostComponent,
         CalendarEventComponent,
+        CalendarEventModal,
     },
     computed: {
         firstPost(): NewsPost | null {
@@ -67,11 +72,24 @@ export default defineComponent({
 
             newsPosts: [] as Array<NewsPost>,
             events: [] as Array<CalendarEvent>,
+
+            eventModalOpen: false as boolean,
+            selectedEvent: {} as CalendarEvent,
         }
     },
     async created() {
         this.newsPosts = this.store.getNewsPosts();
         this.events = this.store.getCalendarEvents(4);
+    },
+    methods: {
+        requestModalShowEvent(calendarEvent: CalendarEvent) {
+            this.selectedEvent = calendarEvent;
+            this.eventModalOpen = true;
+        },
+        requestModalHideEvent() {
+            this.eventModalOpen = false;
+        }
+
     }
 });
 </script>

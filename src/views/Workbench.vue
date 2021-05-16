@@ -46,7 +46,7 @@ import { defineComponent } from 'vue';
 import { useStore } from "@/store/store"
 import { CalendarEvent } from '@/types/types';
 
-import CalendarEventComponent from "@/components/CalendarEvent.vue"
+import CalendarEventComponent from "@/components/CalendarEvent/CalendarEvent.vue"
 
 export default defineComponent({
     name: 'Home',
