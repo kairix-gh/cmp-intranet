@@ -41,7 +41,7 @@ const mockResources = [
         "ComplianceAssetId": null,
         "Title": "Key Contacts",
         "Category": "Operations",
-        "Subcategory": "Hotel Operations",
+        "Subcategory": null,
         "Image": {
             "Description": "https://images.unsplash.com/1/bag-and-hands.jpg?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=192&h=112&q=80",
             "Url": "https://images.unsplash.com/1/bag-and-hands.jpg?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=192&h=112&q=80"

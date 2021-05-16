@@ -22,9 +22,15 @@
                             <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
                                 <MenuItems class="origin-top-left absolute left-0 mt-2 w-[34rem] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none grid grid-cols-2 z-10">
                                     <div class="py-2" v-for="(item, index) in resourceCategories" :key="index">
-                                        <p class="block px-4 py-2 text-sm font-medium">{{ item }} <a href="#" class="text-sm uppercase ml-2 text-blue-500 font-medium hover:underline">+ See All</a></p>
-                                        <MenuItem v-slot="{ active }" v-for="(item, index) in pinnedResources.filter(r => r.Category ==item).slice(0, 3)" :key="index">
-                                            <a href="#" :class="[ active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm ml-2']">{{ item.Title }}</a>
+                                        <div class="flex items-center px-4 py-2">
+                                            <p class="block text-sm font-medium">{{ item }}</p>
+                                            <MenuItem>
+                                                <router-link :to="{ name: 'Resources', params: { category: item.toLowerCase() }}" class="text-sm uppercase ml-2 text-blue-500 font-medium hover:underline">+ See All</router-link>
+                                            </MenuItem>
+                                        </div>
+
+                                        <MenuItem v-slot="{ active }" v-for="(item, index) in pinnedResources.filter(r => r.Category == item).slice(0, 3)" :key="index">
+                                            <a :href="item.File.ServerRelativeUrl" target="_blank" :class="[ active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm ml-2']">{{ item.Title }}</a>
                                         </MenuItem>
                                     </div>
                                 </MenuItems>
@@ -213,11 +219,11 @@
                         <div class="mt-6">
                             <p class="font-semibold text-base mb-4">myResources</p>
                             <nav class="grid gap-y-8">
-                                <a v-for="(item, index) in resourceCategories" :key="index" href="#" class="flex items-center rounded-md hover:bg-gray-50 p-3 -m-3">
+                                <router-link :to="{ name: 'Resources', params: { category: item.toLowerCase() }}" v-for="(item, index) in resourceCategories" :key="index" href="#" class="flex items-center rounded-md hover:bg-gray-50 p-3 -m-3">
                                     <span class="ml-3 text-base text-gray-900">
                                         {{ item }}
                                     </span>
-                                </a>
+                                </router-link>
                             </nav>
                         </div>
                     </div>

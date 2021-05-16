@@ -11,6 +11,7 @@
 import { defineComponent } from 'vue';
 
 import { useStore } from "@/store/store"
+import { Resource } from '@/types/types';
 
 
 export default defineComponent({
@@ -24,7 +25,7 @@ export default defineComponent({
             store: useStore(),
         }
     },
-    async created() {
-    },
+    // async created() {
+    // },
 });
 </script>

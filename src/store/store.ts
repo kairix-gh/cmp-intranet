@@ -74,7 +74,7 @@ class Store {
             return [];
         }
 
-        return this.state.resources.all.filter(r => r.Category == category);
+        return this.state.resources.all.filter(r => r.Category.toLowerCase() == category.toLowerCase());
     }
 
     public getNewsPosts(count?: number): Array<NewsPost> {
