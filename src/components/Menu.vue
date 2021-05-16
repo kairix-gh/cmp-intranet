@@ -195,7 +195,7 @@
                 <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                     <div class="py-5 px-5">
                         <div class="flex items-center justify-between">
-                            <form @submit.prevent="search" class="flex rounded border-2 focus-within:ring-2 ring-primary w-full sm:mr-6">
+                            <form @submit.prevent="search" class="flex rounded border-2 focus-within:ring-2 ring-primary w-full mr-2">
                                 <input v-model="searchInput" class="w-full p-2 focus:outline-none" type="text" placeholder="Search Intranet">
                                 <button type="submit" class="w-auto flex justify-end items-center bg-white text-red-500 p-2 hover:text-red-400 focus:outline-none" tabindex="-1">
                                     <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
