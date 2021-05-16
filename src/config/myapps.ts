@@ -7,7 +7,7 @@ export interface myApp {
 }
 
 const myApps = [
-    { name: "RLH University", description: "Central Hub for all brand approved training courses", route: "#" },
-    { name: "Reputation Performance Platform", description: "Review and monitor your online reputation score", route: "#" },
-    { name: "RLH ePay", description: "Manage your franchise invoices", route: "#" },
+    { name: "Brand University", description: "Central Hub for all brand approved training courses", route: "#" },
+    { name: "Social Scores", description: "Review and monitor your social presence", route: "#" },
+    { name: "ePay", description: "Manage your franchise invoices", route: "#" },
 ]

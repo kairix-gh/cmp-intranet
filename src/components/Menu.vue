@@ -14,7 +14,7 @@
                         <Menu as="div" class="relative inline-block">
                             <div>
                                 <MenuButton class="inline-flex justify-center w-full rounded-md px-4 py-2 bg-white text-gray-700">
-                                    <span>myResources</span>
+                                    <span>Resources</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 -mr-1 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                                 </MenuButton>
                             </div>
@@ -33,14 +33,14 @@
 
                         <!-- NewsHub -->
                         <div class="inline-block px-2 py-2">
-                            <a href="#" class="py-2 px-4">NewsHub</a>
+                            <a href="#" class="py-2 px-4">News</a>
                         </div>
 
                         <!-- myHotel -->
                         <Popover v-slot="{ open }" class="relative inline-block px-2">
                             <PopoverButton :class="open ? '' : 'text-opacity-90'"
                                 class="inline-flex items-center px-2 py-2 group hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-                                <span>myHotels</span>
+                                <span>Hotels</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1 -mr-1 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                             </PopoverButton>
 
