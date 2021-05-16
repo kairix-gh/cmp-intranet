@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col max-w-[18rem] rounded-3xl shadow-xl">
+    <div class="flex flex-col max-w-[18rem] rounded-3xl shadow-xl w-full mx-auto">
         <div class="bg-gray-100 rounded-t-3xl px-5 pt-3 flex-grow flex items-center justify-center">
             <p class="text-center mb-2 font-medium">{{ Event.Title }}</p>
         </div>
