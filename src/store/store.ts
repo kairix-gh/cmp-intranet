@@ -1,5 +1,5 @@
 import { reactive, readonly, inject } from "vue";
-import { Resource, ResourceList, NewsPostList, CalendarEventList, NewsPost } from "@/types/types"
+import { Resource, ResourceList, NewsPostList, CalendarEventList, NewsPost, CalendarEvent } from "@/types/types"
 
 import { mockResources } from "@/mockups/resources"
 import { mockNewsPosts } from "@/mockups/newsposts"
@@ -87,6 +87,20 @@ class Store {
             return sortedPosts;
         } else {
             return sortedPosts.slice(0, 0 + count);
+        }
+    }
+
+
+    public getCalendarEvents(count?: number): Array<CalendarEvent> {
+        if (!this.state.calendarEvents.loaded) {
+            return [];
+        }
+
+        const sortedEvents = this.state.calendarEvents.all.sort((a, b) => Date.parse(b.StartDate) - Date.parse(a.StartDate));
+        if (count === undefined) {
+            return sortedEvents;
+        } else {
+            return sortedEvents.slice(0, 0 + count);
         }
     }
 
