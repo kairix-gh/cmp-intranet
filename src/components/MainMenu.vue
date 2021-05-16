@@ -221,7 +221,7 @@
                         <div class="mt-6">
                             <p class="font-semibold text-base mb-4">myResources</p>
                             <PopoverButton as="nav" class="grid gap-y-8">
-                                <router-link @click="closeMobileMenu" :to="{ name: 'Resources', params: { category: item.toLowerCase() }}" v-for="(item, index) in resourceCategories" :key="index" href="#" class="flex items-center rounded-md hover:bg-gray-50 p-3 -m-3">
+                                <router-link :to="{ name: 'Resources', params: { category: item.toLowerCase() }}" v-for="(item, index) in resourceCategories" :key="index" href="#" class="flex items-center rounded-md hover:bg-gray-50 p-3 -m-3">
                                     <span class="ml-3 text-base text-gray-900">
                                         {{ item }}
                                     </span>
