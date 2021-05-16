@@ -1,20 +1,7 @@
 <template>
     <div class="flex flex-col max-w-7xl mx-auto">
         <div class="flex flex-col mx-4">
-
-            <a href="#" v-if="firstPost" class="flex flex-col md:flex-row w-full rounded shadow-lg group md:max-h-[21.25rem] hover:shadow-xl">
-                <div class="md:w-1/2">
-                    <img :src="firstPost.ImageUrl.Description" class=""/>
-                </div>
-
-                <div class="flex flex-col items-start bg-white py-4 px-4 md:w-1/2 relative">
-                    <span class="text-sm text-gray-400 font-medium uppercase">{{ firstPost.Category }}</span>
-                    <p class="text-lg md:text-2xl ">{{ firstPost.Title }}</p>
-                    <p class="leading-tight text-xs uppercase mb-1">{{ firstPost.PublishDate.substring(0, 10) }}</p>
-                    <p class="text-base mb-12 max-h-32 md:max-h-48 overflow-y-hidden fadeBox">{{ firstPost.Description }}{{ firstPost.Description }}</p>
-                    <p class="absolute bottom-4 px-2.5 py-1 uppercase text-white text-sm font-medium bg-blue-300 rounded group-hover:bg-blue-600">Read More</p>
-                </div>
-            </a>
+            <NewsPostHero :NewsPost="firstPost"/>
 
             <div class="grid md:grid-cols-3 gap-x-8 gap-y-8 mt-6">
                 <a href="#" v-for="item in newsPosts.slice(1, 4)" :key="item" class="flex flex-col shadow-lg relative rounded hover:shadow-xl">
@@ -53,9 +40,12 @@ import { defineComponent } from 'vue';
 import { useStore } from "@/store/store"
 import { NewsPost } from "@/types/types"
 
+import NewsPostHero from "@/components/NewsPosts/NewsPostHero.vue"
+
 export default defineComponent({
     name: 'Home',
     components: {
+        NewsPostHero
     },
     computed: {
         firstPost(): NewsPost | null {
