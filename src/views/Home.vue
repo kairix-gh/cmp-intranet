@@ -13,7 +13,10 @@
             </a>
 
             <div class="w-full mt-8 mb-2">
-                <p class="text-2xl pb-1 mb-3 border-b">Upcoming Events</p>
+                <div class="flex items-center pb-1 mb-3 border-b">
+                    <p class="text-2xl">Upcoming Events</p>
+                    <a href="#" class="text-sm uppercase ml-2 mt-1 text-blue-500 font-medium hover:underline">+ See All</a>
+                </div>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8 mx-auto">
                     <CalendarEventComponent v-for="event in events" :key="event" :Event="event" v-on:requestModalShow="requestModalShowEvent" />
                 </div>
