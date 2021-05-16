@@ -11,7 +11,7 @@
                     <!-- Menu Items -->
                     <nav class="hidden md:inline-flex items-center divide-x-2">
                         <!-- myResources -->
-                        <Menu as="div" class="relative inline-block">
+                        <Menu as="div" class="relative inline-block z-50">
                             <div>
                                 <MenuButton class="inline-flex justify-center w-full rounded-md px-4 py-2 bg-white text-gray-700">
                                     <span>myResources</span>
@@ -24,7 +24,7 @@
                                     <div class="py-2" v-for="(item, index) in resourceCategories" :key="index">
                                         <p class="block px-4 py-2 text-sm font-medium">{{ item }} <a href="#" class="text-sm uppercase ml-2 text-blue-500 font-medium hover:underline">+ See All</a></p>
                                         <MenuItem v-slot="{ active }" v-for="(item, index) in pinnedResources.filter(r => r.Category ==item).slice(0, 3)" :key="index">
-                                            <a href="#" :class="[ active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">{{ item.Title }}</a>
+                                            <a href="#" :class="[ active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm ml-2']">{{ item.Title }}</a>
                                         </MenuItem>
                                     </div>
                                 </MenuItems>
@@ -123,7 +123,7 @@
                         </Popover>
 
                         <!-- Search -->
-                        <Popover v-slot="{ open }" class="inline-block px-2">
+                        <Popover v-slot="{ open }" class="inline-block px-2 z-50">
                             <PopoverButton :class="open ? '' : 'text-opacity-90'"
                                 class="inline-flex items-center px-2 py-2 group hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
@@ -191,11 +191,11 @@
 
         <!-- Mobile Menu -->
         <transition enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
-            <PopoverPanel class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right">
+            <PopoverPanel class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right z-50">
                 <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                     <div class="py-5 px-5">
                         <div class="flex items-center justify-between">
-                            <form @submit.prevent="search" class="flex rounded border-2 focus-within:ring-2 ring-primary">
+                            <form @submit.prevent="search" class="flex rounded border-2 focus-within:ring-2 ring-primary w-full sm:mr-6">
                                 <input v-model="searchInput" class="w-full p-2 focus:outline-none" type="text" placeholder="Search Intranet">
                                 <button type="submit" class="w-auto flex justify-end items-center bg-white text-red-500 p-2 hover:text-red-400 focus:outline-none" tabindex="-1">
                                     <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
