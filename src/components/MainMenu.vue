@@ -267,7 +267,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 
 import { IntranetSections, IntranetSection } from "@/config/intranetSections"
 import { Properties as PropertyList, Hotel } from "@/mockups/properties"
