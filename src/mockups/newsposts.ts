@@ -14,8 +14,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-02-26T07:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=410&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=1920&h=384&q=80&fit=facearea&crop=edges"
+            "Description": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80",
+            "Url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "​Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -32,8 +32,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-02-23T07:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1491796014055-e6835cdcd4c6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1491796014055-e6835cdcd4c6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=1920&h=384&q=80&fit=facearea&crop=edges"
+            "Description": "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80",
+            "Url": "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "​Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -50,8 +50,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-02-16T23:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1568992688065-536aad8a12f6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&h=384&q=80"
+            "Description": "https://images.unsplash.com/photo-1603328198605-fd20581ccc4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80",
+            "Url": "https://images.unsplash.com/photo-1603328198605-fd20581ccc4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "​Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -68,8 +68,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-02-15T22:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&h=176&q=80",
-            "Url": "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=1920&h=384&q=80&fit=facearea&crop=edges"
+            "Description": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=800",
+            "Url": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "​Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -86,8 +86,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-01-20T07:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1534534573898-db5148bc8b0c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1534534573898-db5148bc8b0c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&h=288&q=80&crop=edges&fit=facearea"
+            "Description": "https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80",
+            "Url": "https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80"
         },
         "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -104,8 +104,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-01-20T07:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1503457574462-bd27054394c1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1503457574462-bd27054394c1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=1920&h=384&q=80&fit=facearea"
+            "Description": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80",
+            "Url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "​Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -122,8 +122,8 @@ const mockNewsPosts = [
         "PublishDate": "2020-12-31T00:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1610652492500-ded49ceeb378?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1610652492500-ded49ceeb378?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&h=288&q=80"
+            "Description": "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80",
+            "Url": "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "DENVER, Dec. 30, 2020 (GLOBE NEWSWIRE) -- RLH Corporation (NYSE: RLH) (“RLH” or “Red Lion”), the 10th-largest US-based hotel franchise company serving a large segment of American consumers, today announced that it has entered into a definitive merger agreement (“Merger Agreement” or “agreement”) with Sonesta International Hotels Corporation (“Sonesta”) under which RLH will be acquired by Sonesta in an all-cash transaction valued at approximately $90 million. The agreement has been unanimously approved by the RLH Board of Directors."
     },
@@ -140,8 +140,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-02-26T07:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=1920&h=384&q=80&fit=facearea&crop=edges"
+            "Description": "https://images.unsplash.com/photo-1603328198605-fd20581ccc4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80",
+            "Url": "https://images.unsplash.com/photo-1603328198605-fd20581ccc4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "​Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -158,8 +158,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-02-23T07:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1491796014055-e6835cdcd4c6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1491796014055-e6835cdcd4c6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=1920&h=384&q=80&fit=facearea&crop=edges"
+            "Description": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=800",
+            "Url": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "​Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -176,8 +176,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-02-16T23:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1568992688065-536aad8a12f6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&h=384&q=80"
+            "Description": "https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80",
+            "Url": "https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80"
         },
         "Description": "​Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -194,8 +194,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-02-15T22:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&h=176&q=80",
-            "Url": "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=1920&h=384&q=80&fit=facearea&crop=edges"
+            "Description": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80",
+            "Url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "​Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -212,8 +212,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-01-20T07:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1534534573898-db5148bc8b0c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1534534573898-db5148bc8b0c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&h=288&q=80&crop=edges&fit=facearea"
+            "Description": "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80",
+            "Url": "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -230,8 +230,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-01-20T07:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1503457574462-bd27054394c1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1503457574462-bd27054394c1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=1920&h=384&q=80&fit=facearea"
+            "Description": "https://images.unsplash.com/photo-1603328198605-fd20581ccc4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80",
+            "Url": "https://images.unsplash.com/photo-1603328198605-fd20581ccc4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "​Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -248,8 +248,8 @@ const mockNewsPosts = [
         "PublishDate": "2020-12-31T00:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1610652492500-ded49ceeb378?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1610652492500-ded49ceeb378?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&h=288&q=80"
+            "Description": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=800",
+            "Url": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "DENVER, Dec. 30, 2020 (GLOBE NEWSWIRE) -- RLH Corporation (NYSE: RLH) (“RLH” or “Red Lion”), the 10th-largest US-based hotel franchise company serving a large segment of American consumers, today announced that it has entered into a definitive merger agreement (“Merger Agreement” or “agreement”) with Sonesta International Hotels Corporation (“Sonesta”) under which RLH will be acquired by Sonesta in an all-cash transaction valued at approximately $90 million. The agreement has been unanimously approved by the RLH Board of Directors."
     },
@@ -266,8 +266,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-02-26T07:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=1920&h=384&q=80&fit=facearea&crop=edges"
+            "Description": "https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80",
+            "Url": "https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80"
         },
         "Description": "​Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -284,8 +284,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-02-23T07:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1491796014055-e6835cdcd4c6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1491796014055-e6835cdcd4c6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=1920&h=384&q=80&fit=facearea&crop=edges"
+            "Description": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80",
+            "Url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "​Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -302,8 +302,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-02-16T23:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1568992688065-536aad8a12f6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&h=384&q=80"
+            "Description": "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80",
+            "Url": "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "​Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -320,8 +320,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-02-15T22:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&h=176&q=80",
-            "Url": "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=1920&h=384&q=80&fit=facearea&crop=edges"
+            "Description": "https://images.unsplash.com/photo-1603328198605-fd20581ccc4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80",
+            "Url": "https://images.unsplash.com/photo-1603328198605-fd20581ccc4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "​Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -338,8 +338,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-01-20T07:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1534534573898-db5148bc8b0c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1534534573898-db5148bc8b0c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&h=288&q=80&crop=edges&fit=facearea"
+            "Description": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=800",
+            "Url": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -356,8 +356,8 @@ const mockNewsPosts = [
         "PublishDate": "2021-01-20T07:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1503457574462-bd27054394c1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1503457574462-bd27054394c1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=1920&h=384&q=80&fit=facearea"
+            "Description": "https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80",
+            "Url": "https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80"
         },
         "Description": "​Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur feugiat auctor. Vivamus quam mi, fermentum facilisis sapien accumsan, maximus ultrices lacus. Duis eros felis, rutrum a lorem id, commodo cursus tellus. Sed in sagittis purus, congue tempus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla in risus at ante aliquam consectetur. Aenean eget ornare urna. Nulla et pellentesque ante, et elementum metus. Fusce a odio nulla. Praesent nec placerat ligula. Integer sed purus ac urna auctor viverra nec sed leo."
     },
@@ -374,8 +374,8 @@ const mockNewsPosts = [
         "PublishDate": "2020-12-31T00:00:00Z",
         "Emphasized": false,
         "ImageUrl": {
-            "Description": "https://images.unsplash.com/photo-1610652492500-ded49ceeb378?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&w=415&h=176&fit=crop",
-            "Url": "https://images.unsplash.com/photo-1610652492500-ded49ceeb378?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&h=288&q=80"
+            "Description": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80",
+            "Url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
         },
         "Description": "DENVER, Dec. 30, 2020 (GLOBE NEWSWIRE) -- RLH Corporation (NYSE: RLH) (“RLH” or “Red Lion”), the 10th-largest US-based hotel franchise company serving a large segment of American consumers, today announced that it has entered into a definitive merger agreement (“Merger Agreement” or “agreement”) with Sonesta International Hotels Corporation (“Sonesta”) under which RLH will be acquired by Sonesta in an all-cash transaction valued at approximately $90 million. The agreement has been unanimously approved by the RLH Board of Directors."
     },
