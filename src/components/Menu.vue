@@ -244,7 +244,7 @@
                             <p class="font-semibold text-base">myHotels</p>
                             <input v-model="hotelFilterInput" class="w-full px-4 py-2 ring-1 ring-gray-400 rounded-lg focus:outline-none" type="text" placeholder="Filter Hotels">
                         </div>
-                        <div class="grid gap-y-4">
+                        <div class="grid gap-y-4 max-h-64 overflow-y-scroll">
                             <a href="#" v-for="item in filteredHotelList " :key="item" class="self-center text-base hover:text-gray-700">
                                 {{ item.name }}
                             </a>
