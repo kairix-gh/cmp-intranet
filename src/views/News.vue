@@ -11,7 +11,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from "vue";
+import { defineComponent, ref, computed, watch } from "vue";
+import { useRouter, useRoute } from "vue-router"
 
 import { useStore } from "@/store/store"
 
@@ -29,6 +30,8 @@ export default defineComponent({
     },
     setup() {
         const store = useStore();
+        const router = useRouter();
+        const route = useRoute();
 
         const newsPosts = store.getNewsPosts();
         const firstPost = computed(function() {
@@ -39,9 +42,36 @@ export default defineComponent({
             return {}
         })
 
-        const currentPage = ref(1);
-        const itemsOnFirstPage = 4;
+        const currentPage = ref(getPageNumber(route.params.page));
+        const itemsOnFirstPage = 7;
         const itemsPerPage = 6;
+
+        // Update currentPage when we change pages
+        watch(
+            () => route.params.page, async newId => {
+                currentPage.value = getPageNumber(newId);
+            }
+        )
+
+        // Update route when we change pages
+        function requestPageChangeEvent(args: number) {
+            router.push({
+                name: "News",
+                params: {
+                    page: args
+                }
+            });
+        }
+
+        // Take value from router param and determine what page we're on
+        // if it's not valid, default to page 1
+        function getPageNumber(value: string | string[]) {
+            if (value) {
+                return parseInt(value.toString())
+            } else {
+                return 1;
+            }
+        }
 
         // Calc start index of array items for template
         const arrayStart = computed(function() {
@@ -60,10 +90,6 @@ export default defineComponent({
 
             return (arrayStart.value + (currentPage.value == 1 ? itemsOnFirstPage - 1 : itemsPerPage));
         })
-
-        function requestPageChangeEvent(args: number) {
-            currentPage.value = args;
-        }
 
         return {
             newsPosts,
