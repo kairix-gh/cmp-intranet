@@ -24,7 +24,8 @@
                     <a href="#" @click.prevent="requestPageChange(CurrentPage - 1)" class="relative inline-flex items-center px-2 py-2 rounded-l-md border bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
                     </a>
-                    <a href="#" @click.prevent="requestPageChange(item)" class="relative inline-flex items-center px-4 py-2 border text-sm font-medium bg-white text-gray-500 hover:bg-gray-50 "
+                    <a href="#" @click.prevent="requestPageChange(item)" class="relative inline-flex items-center px-4 py-2 border text-sm font-medium bg-white text-gray-500 hover:bg-gray-50"
+                        :class="[ item == CurrentPage ? 'bg-blue-50 border-blue-500 text-blue-600 z-10' : '']"
                         v-for="item in Array.from({length: totalPages}, (k,v) => v+1)" :key="item"
                     >
                         {{ item }}
