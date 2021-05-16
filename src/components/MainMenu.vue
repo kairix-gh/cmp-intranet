@@ -3,10 +3,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="flex items-center justify-between py-4">
                 <div class="flex items-center">
-                    <a href="#">
+                    <router-link :to="{ name: 'Home' }">
                         <span class="sr-only">Logo</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-auto h-10 sm:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>
-                    </a>
+                    </router-link>
 
                     <!-- Menu Items -->
                     <nav class="hidden md:inline-flex items-center divide-x-2">
@@ -33,7 +33,7 @@
 
                         <!-- NewsHub -->
                         <div class="inline-block px-2 py-2">
-                            <a href="#" class="py-2 px-4">News</a>
+                            <router-link :to="{ name: 'News'}" class="py-2 px-4">News</router-link>
                         </div>
 
                         <!-- myHotel -->
@@ -224,7 +224,9 @@
 
                     <div class="py-5 px-5 space-y-8">
                         <div class="grid grid-cols-2 gap-y-6 gap-x-8">
-                            <a href="#" v-for="(item, index) in ['NewsHub', 'Calendar', 'Vendors']" :key="index" class="text-base font-medium hover:text-gray-700">
+                            <router-link :to="{ name: 'News'}" class="text-base font-medium hover:text-gray-700">News</router-link>
+
+                            <a href="#" v-for="(item, index) in ['Calendar', 'Vendors']" :key="index" class="text-base font-medium hover:text-gray-700">
                                 {{ item }}
                             </a>
                         </div>
