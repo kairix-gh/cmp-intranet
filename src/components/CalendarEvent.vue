@@ -30,7 +30,7 @@
             <div class="fixed inset-0 z-10 overflow-y-auto">
                 <div class="min-h-screen px-4 text-center">
                     <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0" enter-to="opacity-100" leave="duration-200 ease-in" leave-from="opacity-100" leave-to="opacity-0">
-                        <DialogOverlay class="fixed inset-0"/>
+                        <DialogOverlay class="fixed inset-0 bg-gray-50 bg-opacity-70"/>
                     </TransitionChild>
 
                     <span class="inline-block h-screen align-middle">

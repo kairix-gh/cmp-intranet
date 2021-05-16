@@ -11,6 +11,13 @@
                 See All News
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
+
+            <div class="w-full border-b mt-8 mb-2">
+                <p class="text-2xl pb-1 mb-3 border-b">Upcoming Events</p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8 mx-auto">
+                    <CalendarEventComponent v-for="event in events" :key="event" :Event="event" />
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -31,16 +38,18 @@
 import { defineComponent } from 'vue';
 
 import { useStore } from "@/store/store"
-import { NewsPost } from "@/types/types"
+import { CalendarEvent, NewsPost } from "@/types/types"
 
 import NewsPostHero from "@/components/NewsPosts/NewsPostHero.vue"
 import NewsPostComponent from "@/components/NewsPosts/NewsPost.vue"
+import CalendarEventComponent from "@/components/CalendarEvent.vue"
 
 export default defineComponent({
     name: 'Home',
     components: {
         NewsPostHero,
-        NewsPostComponent
+        NewsPostComponent,
+        CalendarEventComponent,
     },
     computed: {
         firstPost(): NewsPost | null {
@@ -57,10 +66,12 @@ export default defineComponent({
             store: useStore(),
 
             newsPosts: [] as Array<NewsPost>,
+            events: [] as Array<CalendarEvent>,
         }
     },
     async created() {
         this.newsPosts = this.store.getNewsPosts();
+        this.events = this.store.getCalendarEvents(4);
     }
 });
 </script>
