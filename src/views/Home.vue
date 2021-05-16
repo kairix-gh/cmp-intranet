@@ -1,30 +1,46 @@
 <template>
     <div class="flex flex-col max-w-7xl mx-auto">
         <div class="flex flex-col mx-4">
-            <div href="#" v-if="firstPost" class="relative flex h-52 md:h-[22.5rem] w-full bg-cover rounded" :style="'background-image: url(' + firstPost.ImageUrl.Url + ')'">
-                <span class="absolute top-2 right-2 z-10 rounded ring-1 ring-gray-700 px-2 py-1 bg-gray-700 text-white bg-opacity-80">{{ firstPost.Category }}</span>
 
-                <div class="bg-opacity-60 flex h-full w-full absolute bg-gradient-to-tr md:bg-gradient-to-r from-gray-700">
-                    <div class="self-end md:self-center mb-6 md:mb-0 ml-4 md:ml-8 md:mt-16 space-y-4">
-                        <p class="text-lg md:text-2xl text-white">{{ firstPost.Title }}</p>
-                        <a href="#" class="bg-blue-300 py-2.5 px-6 text-white font-medium uppercase text-xs rounded inline-block">Read More</a>
-                    </div>
+            <a href="#" v-if="firstPost" class="flex flex-col md:flex-row w-full rounded shadow-lg group md:max-h-[21.25rem] hover:shadow-xl">
+                <div class="md:w-1/2">
+                    <img :src="firstPost.ImageUrl.Description" class=""/>
                 </div>
-            </div>
+
+                <div class="flex flex-col items-start bg-white py-4 px-4 md:w-1/2 relative">
+                    <span class="text-sm text-gray-400 font-medium uppercase">{{ firstPost.Category }}</span>
+                    <p class="text-lg md:text-2xl ">{{ firstPost.Title }}</p>
+                    <p class="leading-tight text-xs uppercase mb-1">{{ firstPost.PublishDate.substring(0, 10) }}</p>
+                    <p class="text-base mb-12 max-h-32 md:max-h-48 overflow-y-hidden fadeBox">{{ firstPost.Description }}{{ firstPost.Description }}</p>
+                    <p class="absolute bottom-4 px-2.5 py-1 uppercase text-white text-sm font-medium bg-blue-300 rounded group-hover:bg-blue-600">Read More</p>
+                </div>
+            </a>
 
             <div class="grid md:grid-cols-3 gap-x-8 gap-y-8 mt-6">
-                <a href="#" v-for="item in newsPosts.slice(1, 4)" :key="item" class="flex flex-col shadow-lg relative">
+                <a href="#" v-for="item in newsPosts.slice(1, 4)" :key="item" class="flex flex-col shadow-lg relative rounded hover:shadow-xl">
                     <img :src="item.ImageUrl.Description" class="object-cover"/>
-                    <div class="flex flex-col w-full justify-center h-full">
-                        <span class="absolute top-2 right-2 z-10 rounded ring-1 ring-gray-700 px-2 py-1 bg-gray-700 text-white bg-opacity-80">{{ item.Category }}</span>
-                        <span class="py-1 px-2 font-medium">{{ item.Title }}</span>
-                        <span class="px-2 leading-tight text-xs uppercase mb-1">{{ item.PublishDate.substring(0, 10) }}</span>
+                    <div class="flex flex-col w-full justify-center h-full px-2 py-1 mb-2">
+                        <span class="text-sm text-gray-400 font-medium uppercase">{{ item.Category }}</span>
+                        <span class="leading-tight text-xs uppercase mb-1">{{ item.PublishDate.substring(0, 10) }}</span>
+                        <span class="font-medium">{{ item.Title }}</span>
                     </div>
                 </a>
             </div>
         </div>
     </div>
 </template>
+
+<style scoped>
+.fadeBox:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: linear-gradient(to top, white 20%, rgba(0, 0, 0, 0) 80%);
+}
+</style>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
