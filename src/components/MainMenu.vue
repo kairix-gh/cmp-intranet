@@ -42,7 +42,7 @@
                             <router-link :to="{ name: 'News'}" class="py-2 px-4">News</router-link>
                         </div>
 
-                        <!-- myHotel -->
+                        <!-- Hotels -->
                         <Popover v-slot="{ open }" class="relative inline-block px-2">
                             <PopoverButton :class="open ? '' : 'text-opacity-90'"
                                 class="inline-flex items-center px-2 py-2 group hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
@@ -58,7 +58,7 @@
                                                 <input v-model="hotelFilterInput" class="w-full px-4 py-2 border-b rounded-lg focus:outline-none" type="text" placeholder="Filter Hotels">
                                             </div>
                                             <div class="overflow-x-hidden max-h-[17rem]">
-                                                <div class="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
+                                                <PopoverButton as="div" class="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
                                                     <a v-for="item in filteredHotelList" :key="item" href="#"
                                                         class="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50" >
                                                         <div class="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white sm:h-12 sm:w-12">
@@ -74,7 +74,7 @@
                                                             </p>
                                                         </div>
                                                     </a>
-                                                </div>
+                                                </PopoverButton>
                                             </div>
                                         </div>
                                     </PopoverPanel>
@@ -93,7 +93,7 @@
                             <transition enter-active-class="transition duration-200 ease-out" enter-from-class="translate-y-1 opacity-0" enter-to-class="translate-y-0 opacity-100" leave-active-class="transition duration-150 ease-in" leave-from-class="translate-y-0 opacity-100" leave-to-class="translate-y-1 opacity-0" >
                                 <PopoverPanel class="absolute z-10 w-screen max-w-sm px-4 mt-3 sm:px-0 lg:max-w-3xl origin-top transform -translate-x-1/2 left-1/2 ">
                                         <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                                            <div class="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
+                                            <PopoverButton as="div" class="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
                                                 <a v-for="item in intranetSections" :key="item.name" :href="item.route"
                                                     class="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50" >
                                                     <div class="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white sm:h-12 sm:w-12">
@@ -109,8 +109,8 @@
                                                         </p>
                                                     </div>
                                                 </a>
-                                            </div>
-                                            <div class="p-4 bg-gray-50">
+                                            </PopoverButton>
+                                            <PopoverButton as="div" class="p-4 bg-gray-50">
                                                 <a href="##" class="flow-root px-2 py-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                                                     v-for="item in myApps" :key="item">
                                                     <span class="flex items-center">
@@ -122,7 +122,7 @@
                                                         {{ item.description }}
                                                     </span>
                                                 </a>
-                                            </div>
+                                            </PopoverButton>
                                         </div>
                                     </PopoverPanel>
                             </transition>
@@ -210,41 +210,43 @@
                                 </button>
                             </form>
 
-                            <PopoverButton>
-                                <span class="sr-only">Close Menu</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
+                            <PopoverButton as="div">
+                                <button>
+                                    <span class="sr-only">Close Menu</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
+                                </button>
                             </PopoverButton>
                         </div>
 
                         <div class="mt-6">
                             <p class="font-semibold text-base mb-4">myResources</p>
-                            <nav class="grid gap-y-8">
-                                <router-link :to="{ name: 'Resources', params: { category: item.toLowerCase() }}" v-for="(item, index) in resourceCategories" :key="index" href="#" class="flex items-center rounded-md hover:bg-gray-50 p-3 -m-3">
+                            <PopoverButton as="nav" class="grid gap-y-8">
+                                <router-link @click="closeMobileMenu" :to="{ name: 'Resources', params: { category: item.toLowerCase() }}" v-for="(item, index) in resourceCategories" :key="index" href="#" class="flex items-center rounded-md hover:bg-gray-50 p-3 -m-3">
                                     <span class="ml-3 text-base text-gray-900">
                                         {{ item }}
                                     </span>
                                 </router-link>
-                            </nav>
+                            </PopoverButton>
                         </div>
                     </div>
 
                     <div class="py-5 px-5 space-y-8">
-                        <div class="grid grid-cols-2 gap-y-6 gap-x-8">
+                        <PopoverButton as="div" class="grid grid-cols-2 gap-y-6 gap-x-8">
                             <router-link :to="{ name: 'News'}" class="text-base font-medium hover:text-gray-700">News</router-link>
 
                             <a href="#" v-for="(item, index) in ['Calendar', 'Vendors']" :key="index" class="text-base font-medium hover:text-gray-700">
                                 {{ item }}
                             </a>
-                        </div>
+                        </PopoverButton>
                     </div>
 
                     <div class="py-5 px-5 space-y-6">
                         <p class="font-semibold text-base">myApps</p>
-                        <div class="grid grid-cols-2 gap-y-4 gap-x-8">
+                        <PopoverButton as="div" class="grid grid-cols-2 gap-y-4 gap-x-8">
                             <a href="#" v-for="item in myApps" :key="item" class="self-center text-base hover:text-gray-700">
                                 {{ item.name }}
                             </a>
-                        </div>
+                        </PopoverButton>
                     </div>
 
                     <div class="py-5 px-5 space-y-6">
@@ -252,11 +254,11 @@
                             <p class="font-semibold text-base">myHotels</p>
                             <input v-model="hotelFilterInput" class="w-full px-4 py-2 ring-1 ring-gray-400 rounded-lg focus:outline-none" type="text" placeholder="Filter Hotels">
                         </div>
-                        <div class="grid gap-y-4 max-h-64 overflow-y-scroll">
+                        <PopoverButton as="div" class="grid gap-y-4 max-h-64 overflow-y-scroll">
                             <a href="#" v-for="item in filteredHotelList " :key="item" class="self-center text-base hover:text-gray-700">
                                 {{ item.name }}
                             </a>
-                        </div>
+                        </PopoverButton>
                     </div>
                 </div>
             </PopoverPanel>
@@ -265,7 +267,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 import { IntranetSections, IntranetSection } from "@/config/intranetSections"
 import { Properties as PropertyList, Hotel } from "@/mockups/properties"
@@ -336,6 +338,6 @@ export default defineComponent({
         search() {
             console.log("Do search");
         },
-    }
+    },
 })
 </script>
