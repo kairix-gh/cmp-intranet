@@ -1,17 +1,10 @@
 <template>
     <div class="flex flex-col max-w-7xl mx-auto">
         <div class="flex flex-col mx-4">
-            <NewsPostHero :NewsPost="firstPost"/>
+            <NewsPostHero :Post="firstPost"/>
 
             <div class="grid md:grid-cols-3 gap-x-8 gap-y-8 mt-6">
-                <a href="#" v-for="item in newsPosts.slice(1, 4)" :key="item" class="flex flex-col shadow-lg relative rounded hover:shadow-xl">
-                    <img :src="item.ImageUrl.Description" class="object-cover"/>
-                    <div class="flex flex-col w-full justify-center h-full px-2 py-1 mb-2">
-                        <span class="text-sm text-gray-400 font-medium uppercase">{{ item.Category }}</span>
-                        <span class="leading-tight text-xs uppercase mb-1">{{ item.PublishDate.substring(0, 10) }}</span>
-                        <span class="font-medium">{{ item.Title }}</span>
-                    </div>
-                </a>
+                <NewsPostComponent :Post="item" v-for="item in newsPosts.slice(1, 4)" :key="item" />
             </div>
 
             <a href="#" class="inline-flex items-center mt-4 uppercase text-white text-sm font-medium bg-blue-300 rounded px-2.5 py-1 hover:bg-blue-600 w-full md:w-auto justify-center md:self-end">
@@ -41,11 +34,13 @@ import { useStore } from "@/store/store"
 import { NewsPost } from "@/types/types"
 
 import NewsPostHero from "@/components/NewsPosts/NewsPostHero.vue"
+import NewsPostComponent from "@/components/NewsPosts/NewsPost.vue"
 
 export default defineComponent({
     name: 'Home',
     components: {
-        NewsPostHero
+        NewsPostHero,
+        NewsPostComponent
     },
     computed: {
         firstPost(): NewsPost | null {
