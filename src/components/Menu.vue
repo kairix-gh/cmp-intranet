@@ -11,7 +11,7 @@
                     <!-- Menu Items -->
                     <nav class="hidden md:inline-flex items-center divide-x-2">
                         <!-- myResources -->
-                        <Menu as="div" class="relative inline-block z-50">
+                        <Menu as="div" class="relative inline-block">
                             <div>
                                 <MenuButton class="inline-flex justify-center w-full rounded-md px-4 py-2 bg-white text-gray-700">
                                     <span>myResources</span>
@@ -20,7 +20,7 @@
                             </div>
 
                             <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
-                                <MenuItems class="origin-top-left absolute left-0 mt-2 w-[34rem] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none grid grid-cols-2">
+                                <MenuItems class="origin-top-left absolute left-0 mt-2 w-[34rem] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none grid grid-cols-2 z-10">
                                     <div class="py-2" v-for="(item, index) in resourceCategories" :key="index">
                                         <p class="block px-4 py-2 text-sm font-medium">{{ item }} <a href="#" class="text-sm uppercase ml-2 text-blue-500 font-medium hover:underline">+ See All</a></p>
                                         <MenuItem v-slot="{ active }" v-for="(item, index) in pinnedResources.filter(r => r.Category ==item).slice(0, 3)" :key="index">
@@ -123,7 +123,7 @@
                         </Popover>
 
                         <!-- Search -->
-                        <Popover v-slot="{ open }" class="inline-block px-2 z-50">
+                        <Popover v-slot="{ open }" class="inline-block px-2">
                             <PopoverButton :class="open ? '' : 'text-opacity-90'"
                                 class="inline-flex items-center px-2 py-2 group hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
@@ -131,7 +131,7 @@
                             </PopoverButton>
 
                             <transition enter-active-class="transition duration-200 ease-out" enter-from-class="translate-y-1 opacity-0" enter-to-class="translate-y-0 opacity-100" leave-active-class="transition duration-150 ease-in" leave-from-class="translate-y-0 opacity-100" leave-to-class="translate-y-1 opacity-0" >
-                                <PopoverPanel focus class="absolute z-10 w-screen left-0 mt-5">
+                                <PopoverPanel focus class="absolute z-10 w-screen left-0 mt-5 z-10">
                                     <div class="overflow-hidden shadow-lg ring-1 ring-black ring-opacity-5 bg-white max-w-7xl mx-auto rounded">
 
                                         <form @submit.prevent="search" class="w-full flex rounded border focus-within:ring-1 ring-primary p-2">
@@ -161,7 +161,7 @@
                         </div>
 
                         <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
-                            <MenuItems class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            <MenuItems class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
                                 <MenuItem v-slot="{ active }">
                                     <div class="inline-flex items-center w-full" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
