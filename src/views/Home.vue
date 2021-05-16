@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col max-w-7xl mx-auto">
+    <div class="">
         <div class="flex flex-col mx-4">
             <NewsPostHero :Post="firstPost"/>
 

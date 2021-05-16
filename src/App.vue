@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <Menu/>
-        <main class="my-4">
+        <main class="my-4 flex flex-col max-w-7xl mx-auto">
             <router-view/>
         </main>
     </div>

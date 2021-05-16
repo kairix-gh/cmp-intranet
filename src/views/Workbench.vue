@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col max-w-7xl mx-auto">
+    <div class="">
         <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-6 px-4 mx-auto">
 
             <CalendarEventComponent v-for="event in events" :key="event" :Event="event" />
