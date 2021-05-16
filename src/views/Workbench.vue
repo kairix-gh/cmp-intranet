@@ -10,13 +10,13 @@
             <div class="bg-white py-3 flex items-center justify-between border-t sm:px-6 mt-4">
                 <!-- Mobile -->
                 <div class="flex-1 flex justify-between sm:hidden">
-                    <a href="#" class="relative inline-flex items-center px-4 py-2 border text-sm font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
+                    <a href="#" @click.prevent="changePage(currentPage - 1)" class="relative inline-flex items-center px-4 py-2 border text-sm font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
                         Previous
                     </a>
                     <div class="inline-flex items-center text-sm font-medium text-gray-900">
                         {{ currentPage }} / {{ totalPages }}
                     </div>
-                    <a href="#" class="relative inline-flex items-center px-4 py-2 border text-sm font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
+                    <a href="#" @click.prevent="changePage(currentPage + 1)" class="relative inline-flex items-center px-4 py-2 border text-sm font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
                         Next
                     </a>
                 </div>
