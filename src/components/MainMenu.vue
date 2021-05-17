@@ -59,7 +59,7 @@
                                             </div>
                                             <div class="overflow-x-hidden max-h-[17rem]">
                                                 <PopoverButton as="div" class="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
-                                                    <a v-for="item in filteredHotelList" :key="item" href="#"
+                                                    <router-link :to="{ name: 'Hotel', params: { id: item.id }}" v-for="item in filteredHotelList" :key="item"
                                                         class="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50" >
                                                         <div class="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white sm:h-12 sm:w-12">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 48 48"><rect width="48" height="48" rx="8" fill="#EEEEEE"/><path stroke-linecap="round" stroke-linejoin="round" stroke="#999999" stroke-width="2" d="m31,33l0,-16a2,2 0 0 0 -2,-2l-10,0a2,2 0 0 0 -2,2l0,16m14,0l2,0m-2,0l-5,0m-9,0l-2,0m2,0l5,0m-1,-14l1,0m-1,4l1,0m4,-4l1,0m-1,4l1,0m-5,10l0,-5a1,1 0 0 1 1,-1l2,0a1,1 0 0 1 1,1l0,5m-4,0l4,0" /></svg>
@@ -73,7 +73,7 @@
                                                                 {{ item.description }}
                                                             </p>
                                                         </div>
-                                                    </a>
+                                                    </router-link>
                                                 </PopoverButton>
                                             </div>
                                         </div>
@@ -255,9 +255,9 @@
                             <input v-model="hotelFilterInput" class="w-full px-4 py-2 ring-1 ring-gray-400 rounded-lg focus:outline-none" type="text" placeholder="Filter Hotels">
                         </div>
                         <PopoverButton as="div" class="grid gap-y-4 max-h-64 overflow-y-scroll">
-                            <a href="#" v-for="item in filteredHotelList " :key="item" class="self-center text-base hover:text-gray-700">
+                            <router-link :to="{ name: 'Hotel', params: { id: item.id }}" v-for="item in filteredHotelList " :key="item" class="self-center text-base hover:text-gray-700">
                                 {{ item.name }}
-                            </a>
+                            </router-link>
                         </PopoverButton>
                     </div>
                 </div>

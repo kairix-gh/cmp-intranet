@@ -45,7 +45,7 @@
         <div class="flex-grow flex flex-col">
             <div class="relative bg-red-50 h-80 bg-center rounded-lg" style="background-image: linear-gradient(to right, rgba(30, 30, 30, 0.6), rgba(0, 0, 0, 0)), url('https://images.unsplash.com/photo-1568084680786-a84f91d1153c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80')">
                 <div class="text-white absolute bottom-5 left-10 flex flex-col">
-                    <p class="text-2xl">Economy Brand Anaheim, CA</p>
+                    <p class="text-2xl">{{ propertyInfo?.name ?? "" }}</p>
                     <a href="#" class="hover:text-blue-500 inline-flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
                         <span class="text-sm uppercase">Edit</span>
@@ -150,42 +150,90 @@
 
         </div>
     </div>
+
+    <CalendarEventModal :Event="selectedEvent" :IsOpen="eventModalOpen" v-on:requestModalHide="requestModalHideEvent" />
 </template>
 
-<style scoped>
-
-</style>
-
 <script lang="ts">
-/* eslint-disable */
-import { defineComponent } from 'vue';
+import { defineComponent, ref, watch } from "vue";
 
-import { useStore } from "@/store/store"
-import { CalendarEvent, Resource } from '@/types/types';
+import { useStore } from "@/store/store";
+import { useRoute, useRouter } from "vue-router";
 
-import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue"
-import CalendarEventComponent from "@/components/CalendarEvent/CalendarEvent.vue"
+import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
+import CalendarEventComponent from "@/components/CalendarEvent/CalendarEvent.vue";
+import CalendarEventModal from "@/components/CalendarEvent/CalendarEventModal.vue";
 
+import { Properties as PropertyList } from "@/mockups/properties"
+import { CalendarEvent } from "@/types/types";
 
 export default defineComponent({
-    name: 'Workbench',
+    name: "Hotel",
     components: {
         Disclosure,
         DisclosureButton,
         DisclosurePanel,
         CalendarEventComponent,
+        CalendarEventModal
     },
-    computed: {
-    },
-    data() {
-        return {
-            store: useStore(),
+    setup() {
+        const store = useStore();
+        const router = useRouter();
+        const route = useRoute();
 
-            events: [] as CalendarEvent[],
+        // Get Property Info
+        const propertyInfo = ref(getPropertyInfo(route.params.id))
+
+        // If no property info, direct the user back to home page
+        // TODO: 404 Page
+        if (!propertyInfo.value) {
+            router.push({
+                name: "Home",
+            });
         }
-    },
-    async created() {
-        this.events = this.store.getCalendarEvents(4);
-    },
-});
+
+        // Update propertyInfo when we change pages
+        watch(
+            () => route.params.id, async newId => {
+                propertyInfo.value = getPropertyInfo(newId);
+            }
+        )
+
+        // Get property info, return null if it doesn't exist.
+        function getPropertyInfo(id: string | string[]) {
+            if (id) {
+                let info = PropertyList.find(p => p.id.toLowerCase() == id.toString().toLowerCase());
+
+                return info ?? null;
+            } else {
+                return null;
+            }
+        }
+
+        // Events
+        const selectedEvent = ref({});
+        const eventModalOpen = ref(false);
+        const events = store.getCalendarEvents(4);
+
+        function requestModalShowEvent(calendarEvent: CalendarEvent) {
+            selectedEvent.value = calendarEvent;
+            eventModalOpen.value = true;
+        }
+
+        function requestModalHideEvent() {
+            eventModalOpen.value = false;
+        }
+
+        return {
+            propertyInfo,
+            events,
+            selectedEvent,
+            eventModalOpen,
+            requestModalShowEvent,
+            requestModalHideEvent
+        }
+
+
+    }
+})
 </script>

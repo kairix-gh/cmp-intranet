@@ -103,8 +103,6 @@ class Store {
             return sortedEvents.slice(0, 0 + count);
         }
     }
-
-
 }
 
 // Create store and load all data
