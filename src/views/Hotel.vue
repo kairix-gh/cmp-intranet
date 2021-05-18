@@ -130,7 +130,7 @@
                     <p class="text-2xl">Upcoming Events</p>
                     <a href="#" class="text-sm uppercase ml-2 mt-1 text-blue-500 font-medium hover:underline">+ See All</a>
                 </div>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8 mx-auto">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 mx-auto">
                     <CalendarEventComponent v-for="event in events" :key="event" :Event="event" v-on:requestModalShow="requestModalShowEvent" />
                 </div>
             </div>
@@ -201,7 +201,7 @@ export default defineComponent({
         // Events
         const selectedEvent = ref({});
         const eventModalOpen = ref(false);
-        const events = store.getCalendarEvents(4);
+        const events = store.getCalendarEvents(3);
 
         function requestModalShowEvent(calendarEvent: CalendarEvent) {
             selectedEvent.value = calendarEvent;
