@@ -2,7 +2,7 @@ export { HotelMenuItems }
 
 export interface HotelMenuItem {
     name: string;
-    subItems: object[] | null;
+    subItems: HotelMenuSubItem[] | null;
     action?: HotelMenuAction | null;
 }
 
@@ -13,7 +13,7 @@ export interface HotelMenuSubItem {
 
 export interface HotelMenuAction {
     isRoute: boolean;
-    route: object | null;
+    route: unknown | null;
     action(): void | null
 }
 
@@ -27,7 +27,9 @@ const HotelMenuItems = [
                 action: {
                     isRoute: false,
                     route: null,
-                    action: null,
+                    action: function (): void {
+                        console.log("enroll a new member!");
+                    },
                 }
             },
             {
@@ -77,8 +79,40 @@ const HotelMenuItems = [
             }
         ],
     },
-    { name: "Brand Waivers", subItems: null, action: null },
-    { name: "Improvement Plans", subItems: null, action: null },
-    { name: "Branding", subItems: null, action: null },
-    { name: "User Management", subItems: null, action: null },
+    {
+        name: "Brand Waivers",
+        subItems: null,
+        action: {
+            isRoute: true,
+            route: null,
+            action: null
+        }
+    },
+    {
+        name: "Improvement Plans",
+        subItems: null,
+        action: {
+            isRoute: true,
+            route: null,
+            action: null
+        }
+    },
+    {
+        name: "Branding",
+        subItems: null,
+        action: {
+            isRoute: true,
+            route: null,
+            action: null
+        }
+    },
+    {
+        name: "User Management",
+        subItems: null,
+        action: {
+            isRoute: true,
+            route: null,
+            action: null
+        }
+    },
 ]

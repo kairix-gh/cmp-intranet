@@ -1,46 +1,33 @@
 <template>
     <div class="flex flex-col md:flex-row">
         <div class="bg-white w-full md:w-1/4 flex-shrink-0 space-y-1 mb-4 md:order-2 md:ml-4">
-            <Disclosure v-slot="{ open }">
-                <DisclosureButton class="flex justify-between w-full px-4 py-2 text-sm font-medium text-left bg-gray-100 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                    <span>Loyalty Program</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" :class="open ? 'transform rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>
-                </DisclosureButton>
-                <DisclosurePanel class="px-4 pt-4 pb-2 text-sm">
-                    <div class="flex flex-col space-y-4 -ml-1">
-                        <a href="#" class="flex items-center p-2 ease-in-out rounded-lg hover:bg-gray-50" v-for="item in ['Enroll New Member', 'Member Lookup', 'Member Arrivals', 'Manual Member Stay']" :key="item">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" /></svg>
-                            <span class="text-sm font-medium text-gray-900">{{ item }}</span>
-                        </a>
-                    </div>
-                </DisclosurePanel>
-            </Disclosure>
-            <Disclosure v-slot="{ open }">
-                <DisclosureButton class="flex justify-between w-full px-4 py-2 text-sm font-medium text-left bg-gray-100 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                    <span>Reporting</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" :class="open ? 'transform rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>
-                </DisclosureButton>
-                <DisclosurePanel class="px-4 pt-4 pb-2 text-sm">
-                    <div class="flex flex-col space-y-4 -ml-1">
-                        <a href="#" class="flex items-center p-2 ease-in-out rounded-lg hover:bg-gray-50" v-for="item in ['Revenue Analysis', 'Market Share Report']" :key="item">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" /></svg>
-                            <span class="text-sm font-medium text-gray-900">{{ item }}</span>
-                        </a>
-                    </div>
-                </DisclosurePanel>
-            </Disclosure>
-            <a href="#" class="flex justify-between w-full px-4 py-2 text-sm font-medium text-left bg-gray-100 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                <span>Brand Waivers</span>
-            </a>
-            <a href="#" class="flex justify-between w-full px-4 py-2 text-sm font-medium text-left bg-gray-100 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                <span>Improvement Plans</span>
-            </a>
-            <a href="#" class="flex justify-between w-full px-4 py-2 text-sm font-medium text-left bg-gray-100 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                <span>Branding</span>
-            </a>
-            <a href="#" class="flex justify-between w-full px-4 py-2 text-sm font-medium text-left bg-gray-100 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                <span>User Management</span>
-            </a>
+            <template v-for="(item, index) in MenuItems" :key="index">
+                <Disclosure v-slot="{ open }" v-if="item.subItems">
+                    <DisclosureButton class="flex justify-between w-full px-4 py-2 text-sm font-medium text-left bg-gray-100 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75">
+                        <span>{{ item.name }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" :class="open ? 'transform rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>
+                    </DisclosureButton>
+                    <DisclosurePanel class="px-4 pt-4 pb-2 text-sm">
+                        <template v-for="(subItem, index) in item.subItems" :key="index">
+                            <div v-if="subItem.action.isRoute == true" class="flex flex-col space-y-4 -ml-1">
+                                <router-link :to="getMenuItemActionRoute(item.action?.route)" class="flex items-center p-2 ease-in-out rounded-lg hover:bg-gray-50">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" /></svg>
+                                    <span class="text-sm font-medium text-gray-900">{{ subItem.name }}</span>
+                                </router-link>
+                            </div>
+                            <div v-else class="flex flex-col space-y-4 -ml-1">
+                                <a href="#" @click.prevent="callMenuItemAction(subItem.action?.action)" class="flex items-center p-2 ease-in-out rounded-lg hover:bg-gray-50">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" /></svg>
+                                    <span class="text-sm font-medium text-gray-900">{{ subItem.name }}</span>
+                                </a>
+                            </div>
+                        </template>
+                    </DisclosurePanel>
+                </Disclosure>
+                <router-link v-else :to="item.action?.route ?? { name: null }" class="flex justify-between w-full px-4 py-2 text-sm font-medium text-left bg-gray-100 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75">
+                    <span>{{ item.name }}</span>
+                </router-link>
+            </template>
         </div>
         <div class="flex-grow flex flex-col">
             <div class="relative bg-red-50 h-80 bg-center rounded-lg" style="background-image: linear-gradient(to right, rgba(30, 30, 30, 0.6), rgba(0, 0, 0, 0)), url('https://images.unsplash.com/photo-1568084680786-a84f91d1153c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80')">
@@ -165,6 +152,7 @@ import CalendarEventComponent from "@/components/CalendarEvent/CalendarEvent.vue
 import CalendarEventModal from "@/components/CalendarEvent/CalendarEventModal.vue";
 
 import { Properties as PropertyList } from "@/mockups/properties"
+import { HotelMenuItems as MenuItems } from "@/config/hotelMenu"
 import { CalendarEvent } from "@/types/types";
 
 export default defineComponent({
@@ -224,13 +212,35 @@ export default defineComponent({
             eventModalOpen.value = false;
         }
 
+
+        function callMenuItemAction(args: unknown): void {
+            if (typeof(args) == 'function') {
+                args();
+            } else {
+                console.log("no function found for item")
+            }
+        }
+
+        function getMenuItemActionRoute(args: Record<string, unknown>): any {
+            if (args) {
+                if (args.name) {
+                    return args;
+                }
+            }
+
+            return { name: null}
+        }
+
         return {
             propertyInfo,
             events,
             selectedEvent,
             eventModalOpen,
             requestModalShowEvent,
-            requestModalHideEvent
+            requestModalHideEvent,
+            MenuItems,
+            callMenuItemAction,
+            getMenuItemActionRoute
         }
 
 
