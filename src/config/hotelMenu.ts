@@ -14,9 +14,13 @@ export interface HotelMenuSubItem {
 export interface HotelMenuAction {
     isRoute: boolean;
     route: unknown | null;
-    action(): void | null
+    action: HotelPanelContent | null;
 }
 
+export interface HotelPanelContent {
+    title: string;
+    componentId: string;
+}
 
 const HotelMenuItems = [
     {
@@ -27,8 +31,9 @@ const HotelMenuItems = [
                 action: {
                     isRoute: false,
                     route: null,
-                    action: function (): void {
-                        console.log("enroll a new member!");
+                    action: {
+                        title: "Loyalty Member Enrollment",
+                        componentId: "LoyaltyEnrollmentPanelContent",
                     },
                 }
             },
@@ -37,7 +42,10 @@ const HotelMenuItems = [
                 action: {
                     isRoute: false,
                     route: null,
-                    action: null,
+                    action: {
+                        title: "Loyalty Member Lookup",
+                        componentId: "LoyaltyMemberLookupPanelContent"
+                    },
                 }
             },
             {
@@ -45,7 +53,10 @@ const HotelMenuItems = [
                 action: {
                     isRoute: false,
                     route: null,
-                    action: null,
+                    action: {
+                        title: "Loyalty Member Arrivals",
+                        componentId: ""
+                    },
                 }
             },
             {
@@ -53,7 +64,10 @@ const HotelMenuItems = [
                 action: {
                     isRoute: false,
                     route: null,
-                    action: null,
+                    action: {
+                        title: "Process Manual Stay",
+                        componentId: ""
+                    },
                 }
             }
         ],

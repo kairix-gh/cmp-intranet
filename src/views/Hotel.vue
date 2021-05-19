@@ -115,7 +115,7 @@
                                 <div>
                                     <p>Sales</p>
                                 </div>
-                                <a href="#" class="inline-flex items-center hover:text-blue-500">
+                                <a href="#" @click.prevent="openPanel('loyaltyenrollment')" class="inline-flex items-center hover:text-blue-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                                     <span>E-Mail</span>
                                 </a>
@@ -139,6 +139,10 @@
     </div>
 
     <CalendarEventModal :Event="selectedEvent" :IsOpen="eventModalOpen" v-on:requestModalHide="requestModalHideEvent" />
+    <SidePanel :panelOpen="isPanelOpen" @panelClose="closePanel">
+        <template v-slot:title>{{ selectedContent.title }}</template>
+        <component :is="selectedContent.componentId || MissingSidePanelComponent" />
+    </SidePanel>
 </template>
 
 <script lang="ts">
@@ -150,9 +154,15 @@ import { useRoute, useRouter } from "vue-router";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import CalendarEventComponent from "@/components/CalendarEvent/CalendarEvent.vue";
 import CalendarEventModal from "@/components/CalendarEvent/CalendarEventModal.vue";
+import SidePanel from "@/components/SlideOverPanel.vue"
+
+import LoyaltyEnrollmentPanelContent from "@/views/HotelPanelContent/LoyaltyEnrollment.vue"
+import LoyaltyMemberLookupPanelContent from "@/views/HotelPanelContent/LoyaltyMemberLookup.vue"
+import MissingSidePanelComponent from "@/views/HotelPanelContent/MissingComponentError.vue"
 
 import { Properties as PropertyList } from "@/mockups/properties"
-import { HotelMenuItems as MenuItems } from "@/config/hotelMenu"
+import { HotelMenuItems as MenuItems, HotelPanelContent } from "@/config/hotelMenu"
+
 import { CalendarEvent } from "@/types/types";
 
 export default defineComponent({
@@ -162,7 +172,11 @@ export default defineComponent({
         DisclosureButton,
         DisclosurePanel,
         CalendarEventComponent,
-        CalendarEventModal
+        CalendarEventModal,
+        SidePanel,
+        LoyaltyEnrollmentPanelContent,
+        LoyaltyMemberLookupPanelContent,
+        MissingSidePanelComponent
     },
     setup() {
         const store = useStore();
@@ -212,16 +226,11 @@ export default defineComponent({
             eventModalOpen.value = false;
         }
 
-
-        function callMenuItemAction(args: unknown): void {
-            if (typeof(args) == 'function') {
-                args();
-            } else {
-                console.log("no function found for item")
-            }
+        function callMenuItemAction(args: HotelPanelContent): void {
+            openPanel(args);
         }
 
-        function getMenuItemActionRoute(args: Record<string, unknown>): any {
+        function getMenuItemActionRoute(args: Record<string, unknown>) {
             if (args) {
                 if (args.name) {
                     return args;
@@ -229,6 +238,19 @@ export default defineComponent({
             }
 
             return { name: null}
+        }
+
+        // Side Panel
+        const isPanelOpen = ref(false);
+
+        const selectedContent = ref({});
+        function openPanel(panelContent: HotelPanelContent) {
+            selectedContent.value = panelContent ?? { title: "Unknown Content Id", content: null }
+            isPanelOpen.value = true;
+        }
+
+        function closePanel() {
+            isPanelOpen.value = false;
         }
 
         return {
@@ -240,7 +262,11 @@ export default defineComponent({
             requestModalHideEvent,
             MenuItems,
             callMenuItemAction,
-            getMenuItemActionRoute
+            getMenuItemActionRoute,
+            isPanelOpen,
+            openPanel,
+            closePanel,
+            selectedContent,
         }
 
 
