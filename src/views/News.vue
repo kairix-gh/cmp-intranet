@@ -6,7 +6,7 @@
             <NewsPostComponent :Post="item" v-for="item in newsPosts.slice(arrayStart, arrayEnd)" :key="item" />
         </div>
 
-        <Pagination :TotalItems="newsPosts.length" :CurrentPage="currentPage" v-on:requestPageChange="requestPageChangeEvent" />
+        <Pagination :TotalItems="newsPosts.length-1" :CurrentPage="currentPage" :ItemsOnFirstPage="itemsOnFirstPage" :ItemsPerPage="itemsPerPage" v-on:requestPageChange="requestPageChangeEvent" />
     </div>
 </template>
 
