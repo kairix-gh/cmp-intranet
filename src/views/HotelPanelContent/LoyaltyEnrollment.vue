@@ -35,7 +35,7 @@
 
         <!-- Row -->
         <div class="flex space-x-4">
-            <div class="w-full">
+            <div class="w-full relative">
                 <label for="email" class="block uppercase tracking-wide text-xs font-bold mb-2">
                     E-mail
                 </label>
@@ -51,6 +51,7 @@
         </div>
     </div>
 </template>
+
 
 <script lang="ts">
 import { defineComponent } from "vue";
