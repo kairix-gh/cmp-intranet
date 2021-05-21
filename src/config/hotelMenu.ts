@@ -55,7 +55,7 @@ const HotelMenuItems = [
                     route: null,
                     action: {
                         title: "Loyalty Member Arrivals",
-                        componentId: ""
+                        componentId: "LoyaltyMemberArrivals"
                     },
                 }
             },

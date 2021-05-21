@@ -158,6 +158,7 @@ import SidePanel from "@/components/SlideOverPanel.vue"
 
 import LoyaltyEnrollmentPanelContent from "@/views/HotelPanelContent/LoyaltyEnrollment.vue"
 import LoyaltyMemberLookupPanelContent from "@/views/HotelPanelContent/LoyaltyMemberLookup.vue"
+import LoyaltyMemberArrivals from "@/views/HotelPanelContent/LoyaltyMemberArrivals.vue"
 import MissingSidePanelComponent from "@/views/HotelPanelContent/MissingComponentError.vue"
 
 import { Properties as PropertyList } from "@/mockups/properties"
@@ -176,7 +177,8 @@ export default defineComponent({
         SidePanel,
         LoyaltyEnrollmentPanelContent,
         LoyaltyMemberLookupPanelContent,
-        MissingSidePanelComponent
+        MissingSidePanelComponent,
+        LoyaltyMemberArrivals
     },
     setup() {
         const store = useStore();
