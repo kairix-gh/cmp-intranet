@@ -59,17 +59,6 @@ const HotelMenuItems = [
                     },
                 }
             },
-            {
-                name: "Manual Member Stay",
-                action: {
-                    isRoute: false,
-                    route: null,
-                    action: {
-                        title: "Process Manual Stay",
-                        componentId: ""
-                    },
-                }
-            }
         ],
     },
     {

@@ -11,16 +11,16 @@
             </div>
         </form>
         <div class="flex flex-col mt-4">
-            <div class="overflow-x-auto">
+            <div class="overflow-x-auto -mx-5 md:mx-0">
                 <div class="py-2 align-middle inline-block min-w-full">
-                    <div class="shadow overflow-hidden border border-gray-200 rounded-lg">
+                    <div class="shadow overflow-hidden border border-gray-200 md:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Member Level</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Point Balance</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Member ID</th>
+                                    <th scope="col" class="hidden md:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Member Level</th>
+                                    <th scope="col" class="hidden md:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Point Balance</th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><span class="sr-only">View</span></th>
                                 </tr>
                             </thead>
@@ -28,25 +28,21 @@
                                 <tr v-for="member in members" :key="member" class="hover:bg-blue-50">
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-gray-900 font-medium">{{ member.name }}</div>
-                                        <div class="text-sm text-gray-500">{{ member.email }}</div>
+                                        <div class="hidden md:inline-block text-sm text-gray-500">{{ member.email }}</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
+                                        {{ member.id }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap hidden md:table-cell">
                                         {{ member.level }}
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
+                                    <td class="px-6 py-4 whitespace-nowrap hidden md:table-cell">
                                         {{ formatNumber(member.balance) }} pts.
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span :class="[ member.status == 'Active' ? 'text-green-800 bg-green-100 border-green-200' : 'text-red-800 bg-red-100 border-red-200', 'px-2.5 py-0.5 inline-flex text-sm leading-5 font-semibold rounded-lg border']">
-                                            {{ member.status }}
-                                        </span>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <a href="#" class="text-blue-600 hover:text-blue-900">View</a>
                                     </td>
-
                                 </tr>
-
                             </tbody>
                         </table>
                     </div>
@@ -65,11 +61,11 @@ export default defineComponent({
     name: "Loyalty Member Lookup",
     setup() {
         const members = [
-            { name: "Sanna Kipling", email: "sanna.kipling@example.com", level: "Silver", balance: 69375,  status: "Active" },
-            { name: "Tasha Salminen", email: "tasha.salminen@example.com", level: "Platinum", balance: 102955,  status: "Active" },
-            { name: "Carolyn Boothman", email: "carolyn.boothman@example.com", level: "Bronze", balance: 1687,  status: "Active" },
-            { name: "Eemeli Kaydence", email: "eemeli.kaydence@example.com", level: "Diamond", balance: 687326,  status: "Active" },
-            { name: "Terri Niles", email: "terri.niles@example.com", level: "Silver", balance: 72699,  status: "Inactive" },
+            { name: "Sanna Kipling", id: "XXX-12-3456", email: "sanna.kipling@example.com", level: "Silver", balance: 69375 },
+            { name: "Tasha Salminen", id: "XXX-12-3456", email: "tasha.salminen@example.com", level: "Platinum", balance: 102955 },
+            { name: "Carolyn Boothman", id: "XXX-12-3456", email: "carolyn.boothman@example.com", level: "Bronze", balance: 1687 },
+            { name: "Eemeli Kaydence", id: "XXX-12-3456", email: "eemeli.kaydence@example.com", level: "Diamond", balance: 687326 },
+            { name: "Terri Niles", id: "XXX-12-3456", email: "terri.niles@example.com", level: "Silver", balance: 72699 },
         ]
 
         function formatNumber(num: number) {
