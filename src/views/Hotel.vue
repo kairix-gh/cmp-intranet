@@ -24,9 +24,14 @@
                         </template>
                     </DisclosurePanel>
                 </Disclosure>
-                <router-link v-else :to="item.action?.route ?? { name: null }" class="flex justify-between w-full px-4 py-2 text-sm font-medium text-left bg-gray-100 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75">
-                    <span>{{ item.name }}</span>
-                </router-link>
+                <template v-else>
+                    <router-link v-if="item.action.isRoute == true" :to="item.action?.route ?? { name: null }" class="flex justify-between w-full px-4 py-2 text-sm font-medium text-left bg-gray-100 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75">
+                        <span>{{ item.name }}</span>
+                    </router-link>
+                    <a href="#" @click.prevent="callMenuItemAction(item.action?.action)" v-else class="flex justify-between w-full px-4 py-2 text-sm font-medium text-left bg-gray-100 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75">
+                        <span>{{ item.name }}</span>
+                    </a>
+                </template>
             </template>
         </div>
         <div class="flex-grow flex flex-col">
@@ -159,6 +164,7 @@ import SidePanel from "@/components/SlideOverPanel.vue"
 import LoyaltyEnrollmentPanelContent from "@/views/HotelPanelContent/LoyaltyEnrollment.vue"
 import LoyaltyMemberLookupPanelContent from "@/views/HotelPanelContent/LoyaltyMemberLookup.vue"
 import LoyaltyMemberArrivals from "@/views/HotelPanelContent/LoyaltyMemberArrivals.vue"
+import BrandStandardWaivers from "@/views/HotelPanelContent/BrandWaivers.vue"
 import MissingSidePanelComponent from "@/views/HotelPanelContent/MissingComponentError.vue"
 
 import { Properties as PropertyList } from "@/mockups/properties"
@@ -178,7 +184,8 @@ export default defineComponent({
         LoyaltyEnrollmentPanelContent,
         LoyaltyMemberLookupPanelContent,
         MissingSidePanelComponent,
-        LoyaltyMemberArrivals
+        LoyaltyMemberArrivals,
+        BrandStandardWaivers,
     },
     setup() {
         const store = useStore();

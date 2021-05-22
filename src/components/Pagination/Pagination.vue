@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white py-3 flex items-center justify-between border-t sm:px-6 mt-4">
+    <div class="bg-white py-3 flex items-center justify-between border-t sm:px-6">
         <!-- Mobile -->
         <div class="flex-1 flex justify-between sm:hidden">
             <a href="#" @click.prevent="requestPageChange(CurrentPage - 1)" class="relative inline-flex items-center px-4 py-2 border text-sm font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
@@ -15,11 +15,11 @@
 
         <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
             <div>
-                <p class="text-sm text-gray-700">
+                <p class="text-sm text-gray-700 py-2.5">
                     Showing <span class="font-medium">{{ startingCount }}</span> to <span class="font-medium">{{ endingCount }}</span> of <span class="font-medium">{{ TotalItems }}</span> posts.
                 </p>
             </div>
-            <div>
+            <div v-if="totalPages > 1">
                 <nav class="relative inline-flex rounded-md shadow-sm -space-x-px">
                     <a href="#" @click.prevent="requestPageChange(CurrentPage - 1)" class="relative inline-flex items-center px-2 py-2 rounded-l-md border bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>

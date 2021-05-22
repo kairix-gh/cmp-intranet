@@ -86,13 +86,16 @@ const HotelMenuItems = [
         name: "Brand Waivers",
         subItems: null,
         action: {
-            isRoute: true,
+            isRoute: false,
             route: null,
-            action: null
+            action: {
+                title: "Waiver Management",
+                componentId: "BrandStandardWaivers"
+            },
         }
     },
     {
-        name: "Improvement Plans",
+        name: "Action Items",
         subItems: null,
         action: {
             isRoute: true,
