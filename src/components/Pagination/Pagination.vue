@@ -16,7 +16,7 @@
         <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
             <div>
                 <p class="text-sm text-gray-700 py-2.5">
-                    Showing <span class="font-medium">{{ startingCount }}</span> to <span class="font-medium">{{ endingCount }}</span> of <span class="font-medium">{{ TotalItems }}</span> posts.
+                    Showing <span class="font-medium">{{ startingCount }}</span> to <span class="font-medium">{{ endingCount }}</span> of <span class="font-medium">{{ TotalItems }}</span> {{ ItemDescriptor }}.
                 </p>
             </div>
             <div v-if="totalPages > 1">
@@ -62,6 +62,11 @@ export default defineComponent({
             required: true,
             default: 1
         },
+        ItemDescriptor: {
+            type: String,
+            required: false,
+            default: "items"
+        }
     },
     setup(props,  { emit }: { emit: ((eventName: string, payload: number) => void) }) {
         const totalPages = computed(function(): number {
