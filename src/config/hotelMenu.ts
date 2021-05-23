@@ -98,9 +98,12 @@ const HotelMenuItems = [
         name: "Action Items",
         subItems: null,
         action: {
-            isRoute: true,
+            isRoute: false,
             route: null,
-            action: null
+            action: {
+                title: "Action Items",
+                componentId: "ActionItems"
+            }
         }
     },
     {

@@ -165,6 +165,8 @@ import LoyaltyEnrollmentPanelContent from "@/views/HotelPanelContent/LoyaltyEnro
 import LoyaltyMemberLookupPanelContent from "@/views/HotelPanelContent/LoyaltyMemberLookup.vue"
 import LoyaltyMemberArrivals from "@/views/HotelPanelContent/LoyaltyMemberArrivals.vue"
 import BrandStandardWaivers from "@/views/HotelPanelContent/BrandWaivers.vue"
+import ActionItems from "@/views/HotelPanelContent/ActionItems.vue"
+
 import MissingSidePanelComponent from "@/views/HotelPanelContent/MissingComponentError.vue"
 
 import { Properties as PropertyList } from "@/mockups/properties"
@@ -186,6 +188,7 @@ export default defineComponent({
         MissingSidePanelComponent,
         LoyaltyMemberArrivals,
         BrandStandardWaivers,
+        ActionItems,
     },
     setup() {
         const store = useStore();
