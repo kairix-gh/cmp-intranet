@@ -64,3 +64,33 @@ export interface TaskItem {
     assignedBy: string
     due: string
 }
+
+export interface LoyaltyMemberInfo {
+    name: string
+    id: string
+    email: string
+    level: string
+    balance: number
+}
+
+export interface LoyaltyMemberArrival {
+    name: string
+    id: string
+    email: string
+    level: string
+    balance: number
+    arrival: string
+    departure: string
+}
+
+export interface LoyaltyMemberTier {
+    name: string
+    style: string
+}
+
+export interface CreativeResource {
+    name: string,
+    description: string,
+    created: string,
+    url: string
+}

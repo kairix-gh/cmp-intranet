@@ -1,11 +1,21 @@
 import { reactive, readonly, inject } from "vue";
-import { Resource, ResourceList, NewsPostList, CalendarEventList, NewsPost, CalendarEvent, BrandWaiver, TaskItem } from "@/types/types"
+import {
+    Resource, ResourceList,
+    NewsPost, NewsPostList,
+    CalendarEvent, CalendarEventList,
+    BrandWaiver,
+    TaskItem,
+    LoyaltyMemberInfo, LoyaltyMemberArrival, LoyaltyMemberTier
+} from "@/types/types"
 
 import { mockResources } from "@/mockups/resources"
 import { mockNewsPosts } from "@/mockups/newsposts"
 import { mockCalendarEvents } from "@/mockups/calendarevents";
 import { mockWaivers } from "@/mockups/waviers"
 import { mockTasks } from "@/mockups/tasks"
+import { mockLoyaltyArrivals } from "@/mockups/loyaltyMemberArrivals"
+import { mockLoyaltyMembers } from "@/mockups/loyaltyMembers"
+import { mockLoyaltyMemberTiers } from "@/mockups/loyaltyMemberTiers"
 
 const initialResourceList = (): ResourceList => ({ all: [], loaded: false })
 const initialNewsPostList = (): NewsPostList => ({ all: [], loaded: false })
@@ -92,7 +102,6 @@ class Store {
         }
     }
 
-
     public getCalendarEvents(count?: number): Array<CalendarEvent> {
         if (!this.state.calendarEvents.loaded) {
             return [];
@@ -114,6 +123,20 @@ class Store {
     // eslint-disable-next-line
     public getTasksForProperty(propertyCode?: string): TaskItem[] {
         return mockTasks;
+    }
+
+    public getLoyaltyTiers(): LoyaltyMemberTier[] {
+        return mockLoyaltyMemberTiers;
+    }
+
+    // eslint-disable-next-line
+    public getLoyaltyMemberInfo(searchCriteria: string): LoyaltyMemberInfo[] {
+        return mockLoyaltyMembers;
+    }
+
+    // eslint-disable-next-line
+    public getLoyaltyMemberArrivals(propertyCode?: string, arrivalDate?: Date): LoyaltyMemberArrival[] {
+        return mockLoyaltyArrivals;
     }
 }
 
