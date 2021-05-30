@@ -51,3 +51,10 @@ export interface CalendarEventList {
     all: Array<CalendarEvent>
     loaded: boolean
 }
+
+export interface BrandWaiver {
+    approved: string
+    standard: string
+    justification: string
+    expiration: string
+}
