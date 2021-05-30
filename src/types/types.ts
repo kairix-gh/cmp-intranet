@@ -96,3 +96,14 @@ export interface CreativeResource {
     created: string
     url: string
 }
+
+export interface UserProfile {
+    id: number
+    firstName: string
+    lastName: string
+    role: string
+    title: string | null
+    brandEmail: string | null
+    personalEmail: string
+    phone: number | null
+}

@@ -122,9 +122,12 @@ const HotelMenuItems = [
         name: "User Management",
         subItems: null,
         action: {
-            isRoute: true,
+            isRoute: false,
             route: null,
-            action: null
+            action: {
+                title: "User Management",
+                componentId: "UserManagement"
+            }
         }
     },
 ]

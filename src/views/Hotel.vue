@@ -168,6 +168,7 @@ import LoyaltyMemberArrivals from "@/views/HotelPanelContent/LoyaltyMemberArriva
 import BrandStandardWaivers from "@/views/HotelPanelContent/BrandWaivers.vue"
 import ActionItems from "@/views/HotelPanelContent/ActionItems.vue"
 import CreativeResources from "@/views/HotelPanelContent/CreativeResources.vue"
+import UserManagement from "@/views/HotelPanelContent/Users.vue"
 
 import MissingSidePanelComponent from "@/views/HotelPanelContent/MissingComponentError.vue"
 
@@ -191,7 +192,8 @@ export default defineComponent({
         LoyaltyMemberArrivals,
         BrandStandardWaivers,
         ActionItems,
-        CreativeResources
+        CreativeResources,
+        UserManagement
     },
     setup() {
         const store = useStore();
