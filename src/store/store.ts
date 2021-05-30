@@ -1,10 +1,11 @@
 import { reactive, readonly, inject } from "vue";
-import { Resource, ResourceList, NewsPostList, CalendarEventList, NewsPost, CalendarEvent, BrandWaiver } from "@/types/types"
+import { Resource, ResourceList, NewsPostList, CalendarEventList, NewsPost, CalendarEvent, BrandWaiver, TaskItem } from "@/types/types"
 
 import { mockResources } from "@/mockups/resources"
 import { mockNewsPosts } from "@/mockups/newsposts"
 import { mockCalendarEvents } from "@/mockups/calendarevents";
 import { mockWaivers } from "@/mockups/waviers"
+import { mockTasks } from "@/mockups/tasks"
 
 const initialResourceList = (): ResourceList => ({ all: [], loaded: false })
 const initialNewsPostList = (): NewsPostList => ({ all: [], loaded: false })
@@ -108,6 +109,11 @@ class Store {
     // eslint-disable-next-line
     public getWaiversForProperty(propertyCode?: string): BrandWaiver[] {
         return mockWaivers;
+    }
+
+    // eslint-disable-next-line
+    public getTasksForProperty(propertyCode?: string): TaskItem[] {
+        return mockTasks;
     }
 }
 

@@ -58,3 +58,9 @@ export interface BrandWaiver {
     justification: string
     expiration: string
 }
+
+export interface TaskItem {
+    task: string
+    assignedBy: string
+    due: string
+}

@@ -23,7 +23,7 @@
                                             {{ index + 1 }}
                                         </td>
                                         <td class="px-6 py-4 w-1/2">
-                                            {{ item.action }}
+                                            {{ item.task }}
                                         </td>
                                         <td class="px-6 py-4">
                                             {{ item.assignedBy }}
@@ -71,6 +71,7 @@ tr {
 
 <script lang="ts">
 import { defineComponent, ref, computed } from "vue";
+import { useStore } from "@/store/store"
 
 import Pagination from "@/components/Pagination/Pagination.vue"
 
@@ -82,12 +83,8 @@ export default defineComponent({
         Pagination
     },
     setup() {
-        const actionItems: unknown[] = [
-            { action: "Improve breakfast scores by 15%.", assignedBy: "Operations", due: "5/31/201" },
-            { action: "Replace or repair to like-new condition, the damaged soft seating in the breakfast room.", assignedBy: "Operations", due: "5/31/201" },
-            { action: "Ensure all breakfast items served are not expired.", assignedBy: "Operations", due: "5/23/201" },
-            { action: "Implement and offer all brand approved breakfast offerings.", assignedBy: "Operations", due: "5/31/201" },
-        ]
+        const store = useStore();
+        const actionItems = store.getTasksForProperty();
 
         const haveActionItems = computed(function() {
             return actionItems.length > 0
