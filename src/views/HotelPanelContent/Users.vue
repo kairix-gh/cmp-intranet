@@ -24,19 +24,18 @@
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">First Name</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Name</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">E-Mail</th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
                                 <tr v-for="(user, index) in filteredUsers.slice(arrayStart, arrayEnd)" :key="index" class="hover:bg-blue-50">
-                                    <td class="px-4 py-2 hidden md:table-cell">{{ user.firstName }}</td>
-                                    <td class="px-4 py-2 hidden md:table-cell">{{ user.lastName }}</td>
-                                    <td class="px-4 py-2 hidden md:table-cell">{{ user.role }}</td>
-                                    <td class="px-4 py-2">{{ user.brandEmail }}</td>
+                                    <td class="px-4 py-2 hidden md:table-cell">
+                                        <div class="text-sm text-gray-900 font-medium">{{ user.firstName }} {{ user.lastName }}</div>
+                                        <div class="text-sm text-gray-500">{{ user.role }}</div>
+                                    </td>
+                                    <td class="px-4 py-2">{{ user.brandEmail ?? user.personalEmail ?? "N/A" }}</td>
                                     <td class="px-4 py-2">
                                         <div class="flex md:space-x-4 items-center">
                                             <button  @click.prevent="showUserEditProfileModal(user.id)" class="hover:bg-blue-600 hover:text-white rounded transition-all ease-in-out p-2">
