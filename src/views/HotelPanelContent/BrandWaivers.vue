@@ -14,7 +14,6 @@
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Brand Standard</th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Justification</th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Expiration</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><span class="sr-only">Edit</span></th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
@@ -30,9 +29,6 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             {{ waiver.expiration }}
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <a href="#" class="text-blue-600 hover:text-blue-900">Edit</a>
                                         </td>
                                     </tr>
                             </tbody>
