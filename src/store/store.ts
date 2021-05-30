@@ -5,7 +5,8 @@ import {
     CalendarEvent, CalendarEventList,
     BrandWaiver,
     TaskItem,
-    LoyaltyMemberInfo, LoyaltyMemberArrival, LoyaltyMemberTier
+    LoyaltyMemberInfo, LoyaltyMemberArrival, LoyaltyMemberTier,
+    CreativeResource,
 } from "@/types/types"
 
 import { mockResources } from "@/mockups/resources"
@@ -16,6 +17,7 @@ import { mockTasks } from "@/mockups/tasks"
 import { mockLoyaltyArrivals } from "@/mockups/loyaltyMemberArrivals"
 import { mockLoyaltyMembers } from "@/mockups/loyaltyMembers"
 import { mockLoyaltyMemberTiers } from "@/mockups/loyaltyMemberTiers"
+import { mockCreativeResources } from "@/mockups/creativeResources"
 
 const initialResourceList = (): ResourceList => ({ all: [], loaded: false })
 const initialNewsPostList = (): NewsPostList => ({ all: [], loaded: false })
@@ -137,6 +139,11 @@ class Store {
     // eslint-disable-next-line
     public getLoyaltyMemberArrivals(propertyCode?: string, arrivalDate?: Date): LoyaltyMemberArrival[] {
         return mockLoyaltyArrivals;
+    }
+
+    // eslint-disable-next-line
+    public getCreativeResourcesForProperty(propertyCode?: string): CreativeResource[] {
+        return mockCreativeResources;
     }
 }
 

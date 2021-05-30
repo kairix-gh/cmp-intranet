@@ -110,9 +110,12 @@ const HotelMenuItems = [
         name: "Branding",
         subItems: null,
         action: {
-            isRoute: true,
+            isRoute: false,
             route: null,
-            action: null
+            action: {
+                title: "Branding - Creative Resources",
+                componentId: "CreativeResources"
+            }
         }
     },
     {

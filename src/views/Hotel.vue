@@ -161,11 +161,13 @@ import CalendarEventComponent from "@/components/CalendarEvent/CalendarEvent.vue
 import CalendarEventModal from "@/components/CalendarEvent/CalendarEventModal.vue";
 import SidePanel from "@/components/SlideOverPanel.vue"
 
+// Side Panel Content
 import LoyaltyEnrollmentPanelContent from "@/views/HotelPanelContent/LoyaltyEnrollment.vue"
 import LoyaltyMemberLookupPanelContent from "@/views/HotelPanelContent/LoyaltyMemberLookup.vue"
 import LoyaltyMemberArrivals from "@/views/HotelPanelContent/LoyaltyMemberArrivals.vue"
 import BrandStandardWaivers from "@/views/HotelPanelContent/BrandWaivers.vue"
 import ActionItems from "@/views/HotelPanelContent/ActionItems.vue"
+import CreativeResources from "@/views/HotelPanelContent/CreativeResources.vue"
 
 import MissingSidePanelComponent from "@/views/HotelPanelContent/MissingComponentError.vue"
 
@@ -189,6 +191,7 @@ export default defineComponent({
         LoyaltyMemberArrivals,
         BrandStandardWaivers,
         ActionItems,
+        CreativeResources
     },
     setup() {
         const store = useStore();

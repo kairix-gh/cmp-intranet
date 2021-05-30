@@ -89,8 +89,10 @@ export interface LoyaltyMemberTier {
 }
 
 export interface CreativeResource {
-    name: string,
-    description: string,
-    created: string,
+    name: string
+    category: string
+    description: string
+    creator: string
+    created: string
     url: string
 }
