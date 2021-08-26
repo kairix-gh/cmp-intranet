@@ -50,7 +50,8 @@ const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes,
     scrollBehavior(to, from, savedPosition) {
-        if (to.name == "Article") {
+        // Not ideal, but will work in this case
+        if (to.name == "Article" || to.name == "Hotel") {
             return { top: 0 }
         }
     }
