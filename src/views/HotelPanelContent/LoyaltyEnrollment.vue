@@ -32,13 +32,13 @@
                 <label for="first" class="label-base label-focus-base">
                     First Name
                 </label>
-                <input type="text" id="first" class="form-base form-base-focus w-full" placeholder="First Name">
+                <input type="text" id="first" class="form-base form-base-focus w-full" placeholder="First Name" autocomplete="off">
             </div>
             <div class="w-full lg:w-1/3 focus-within:text-blue-500">
                 <label for="last" class="label-base">
                     Last Name
                 </label>
-                <input type="text" id="last" class="form-base w-full form-base-focus " placeholder="Last Name">
+                <input type="text" id="last" class="form-base w-full form-base-focus " placeholder="Last Name" autocomplete="off">
             </div>
         </div>
 
@@ -48,7 +48,7 @@
                 <label for="email" class="label-base">
                     E-mail
                 </label>
-                <input type="text" id="email" class="form-base w-full form-base-focus " placeholder="E-Mail">
+                <input type="text" id="email" class="form-base w-full form-base-focus " placeholder="E-Mail" autocomplete="off">
             </div>
         </div>
 

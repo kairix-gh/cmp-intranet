@@ -3,7 +3,7 @@
         <form class="flex flex-col">
             <div class="relative focus-within:text-blue-500">
                 <label for="memberid" class="label-base">Member ID</label>
-                <input v-model="searchCriteria" type="text" class="form-base w-full focus:border-blue-500">
+                <input v-model="searchCriteria" type="text" class="form-base w-full focus:border-blue-500" autocomplete="off">
                 <p class="text-sm italic text-gray-400">Enter a member number or e-mail address.</p>
             </div>
             <div class="self-end mt-2">

@@ -4,7 +4,7 @@
             <label for="first" class="label-base label-focus-base">
                 Search Users
             </label>
-            <input v-model="filterInput" type="text" id="first" class="form-base form-base-focus w-full" placeholder="Search">
+            <input v-model="filterInput" type="text" id="first" class="form-base form-base-focus w-full" placeholder="Search" autocomplete="off">
         </div>
         <button @click="showUserEditProfileModal(-1)" type="button" class="inline-block bg-blue-300 hover:bg-blue-600 text-white rounded px-2.5 py-1 transition duration-300 form-base-focus">
             <span class="flex items-center">
