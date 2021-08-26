@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="{}" href="#" class="flex flex-col shadow-lg relative rounded hover:shadow-xl">
+    <router-link :to="{ name: 'Article', params: { id: Post.Id } }" class="flex flex-col shadow-lg relative rounded hover:shadow-xl">
         <img :src="Post.ImageUrl.Description" class="object-cover md:h-52"/>
         <div class="flex flex-col w-full justify-center h-full px-2 py-1 mb-2 flex-grow">
             <span class="text-sm text-gray-400 font-medium uppercase">{{ Post.Category }}</span>

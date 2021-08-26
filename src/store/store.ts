@@ -106,6 +106,16 @@ class Store {
         }
     }
 
+    public getNewsPost(id: number) {
+        if (!this.state.newsPosts.loaded) {
+            return null;
+        }
+
+        const post = this.state.newsPosts.all.find(e => e.Id == id);
+
+        return post;
+    }
+
     public getCalendarEvents(count?: number): Array<CalendarEvent> {
         if (!this.state.calendarEvents.loaded) {
             return [];

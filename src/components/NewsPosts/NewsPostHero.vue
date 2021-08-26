@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="{}" class="flex flex-col md:flex-row w-full rounded shadow-lg group md:max-h-[21.25rem] hover:shadow-xl">
+    <router-link :to="{ name: 'Article', params: { id: Post.Id }}" class="flex flex-col md:flex-row w-full rounded shadow-lg group md:max-h-[21.25rem] hover:shadow-xl">
         <div class="md:w-1/2">
             <img :src="Post.ImageUrl.Description" class="md:h-[21.25rem] w-full object-cover"/>
         </div>

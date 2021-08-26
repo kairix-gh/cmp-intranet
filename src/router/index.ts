@@ -30,14 +30,21 @@ const routes: Array<RouteRecordRaw> = [
         name: "Hotel",
         component: () => import("@/views/Hotel.vue"),
     },
-
-
     {
+        path: "/article/:id",
+        name: "Article",
+        component: () => import("@/views/Article.vue")
+    },
+]
+
+// Only include workbench if we're in development
+if (process.env.NODE_ENV === "development") {
+    routes.push({
         path: "/workbench",
         name: "Workbench",
         component: () => import("@/views/Workbench.vue")
-    }
-]
+    })
+}
 
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
