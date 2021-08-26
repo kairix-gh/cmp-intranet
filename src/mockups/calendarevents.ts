@@ -128,7 +128,7 @@ const mockCalendarEvents = [
         "ServerRedirectedEmbedUrl": "",
         "ID": 5,
         "ContentTypeId": "0x0100066D3335AEFAFF4AB71D007D64B00AB400D7B83FE366398645A9CAED9A4C1821C1",
-        "Title": "RLHC Brand Conference",
+        "Title": "Your Brand Conference",
         "Modified": "2021-02-04T15:18:02Z",
         "Created": "2021-01-27T02:21:58Z",
         "AuthorId": 6,
