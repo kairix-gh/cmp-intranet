@@ -1,24 +1,9 @@
-# intranet
+## Intranet Concept Site
 
-## Project setup
-```
-npm install
-```
+One of the many projects I contributed to was a refresh and reimagining of a company intranet site for franchisees. This project is a rendition of that site that I conceptualized and built a mostly-complete proof of concept to better envision what features the site might have, and how the user experience might feel.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#### Technology Used
+  - Vue.js
+  - TailwindCSS / Autoprefixer
+  - PostCSS
+  - Typescript
