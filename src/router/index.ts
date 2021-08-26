@@ -48,7 +48,12 @@ if (process.env.NODE_ENV === "development") {
 
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
-    routes
+    routes,
+    scrollBehavior(to, from, savedPosition) {
+        if (to.name == "Article") {
+            return { top: 0 }
+        }
+    }
 })
 
 export default router
