@@ -336,7 +336,7 @@ export default defineComponent({
     },
     methods: {
         search() {
-            console.log("Do search");
+            return;
         },
     },
 })

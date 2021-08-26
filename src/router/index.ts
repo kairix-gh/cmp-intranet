@@ -49,7 +49,7 @@ if (process.env.NODE_ENV === "development") {
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes,
-    scrollBehavior(to, from, savedPosition) {
+    scrollBehavior(to) {
         // Not ideal, but will work in this case
         if (to.name == "Article" || to.name == "Hotel") {
             return { top: 0 }

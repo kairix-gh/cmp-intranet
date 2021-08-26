@@ -17,7 +17,7 @@
 import { computed, defineComponent, ref } from 'vue'
 
 import { useStore } from "@/store/store";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 
 export default defineComponent({
     name: "",
@@ -25,7 +25,6 @@ export default defineComponent({
     },
     setup() {
         const store = useStore();
-        const router = useRouter();
         const route = useRoute();
 
         const articleId = ref(route.params.id);
