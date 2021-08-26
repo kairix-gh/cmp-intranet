@@ -55,7 +55,7 @@
                                 <PopoverPanel class="absolute z-10 w-screen max-w-sm px-4 mt-3 sm:px-0 lg:max-w-3xl origin-top transform -translate-x-1/2 left-1/2 ">
                                         <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                                             <div class="bg-white">
-                                                <input v-model="hotelFilterInput" class="w-full px-4 py-2 border-b rounded-lg focus:outline-none" type="text" placeholder="Filter Hotels">
+                                                <input v-model="hotelFilterInput" class="w-full px-4 py-2 border-b focus:outline-none" type="text" placeholder="Filter Hotels">
                                             </div>
                                             <div class="overflow-x-hidden max-h-[17rem]">
                                                 <PopoverButton as="div" class="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
