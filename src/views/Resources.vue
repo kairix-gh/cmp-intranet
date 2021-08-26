@@ -40,9 +40,11 @@ export default defineComponent({
 
         watch(
             () => route.params.category, async category => {
-                resourceCategory.value = propercaseCategory(route.params.category.toString());
-                resources.value = store.getResourcesInCategory(category.toString());
-                resourceSubcategories.value = [... new Set(resources.value.map(r => r.Subcategory))];
+                if (route.params.category) {
+                    resourceCategory.value = propercaseCategory(route.params.category.toString());
+                    resources.value = store.getResourcesInCategory(category.toString());
+                    resourceSubcategories.value = [... new Set(resources.value.map(r => r.Subcategory))];
+                }
             }
         )
 
